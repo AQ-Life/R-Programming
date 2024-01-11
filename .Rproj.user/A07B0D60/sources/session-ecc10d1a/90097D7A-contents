@@ -1,0 +1,23 @@
+project:
+  type: book
+
+book:
+  title: "Q_RP"
+  author: "Qi"
+  date: "2024/1/11"
+  chapters:
+    - index.qmd
+    - part: intro.qmd
+      chapters: 
+        - intro.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: custom.scss
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
