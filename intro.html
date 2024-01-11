@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Q_RP - R基础操作</title>
+<title>R Programming - R基础操作</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Q_RP</a> 
+      <a href="./">R Programming</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -194,13 +194,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>已安装Git软件（可参考<a href="https://zhuanlan.zhihu.com/p/193140870">手把手教你用git上传项目到GitHub</a>），在需要托管的本地代码的目录右键单击 Open Git Bash here，并将该目录变成Git可以管理的仓库。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode Git R code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>目录下会出现.git（隐藏）文件夹，然后将所有文件添加到仓库。</p>
-<pre class="git"><code>git add .</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R git code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>然后将文件提交至仓库，并填写注释。</p>
-<pre class="git"><code>git commit -m "comments"</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R git code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"comments"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>复制GitHub上SSH公钥，与之进行链接。</p>
-<pre class="git"><code>git remote add origin git@github.com:AQ-Life/R-Programming.git</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R git code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git remote add origin git<span class="sc">@</span>github.com<span class="sc">:</span>AQ<span class="sc">-</span>Life<span class="sc">/</span>R<span class="sc">-</span>Programming.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>上传本地代码。</p>
-<pre class="git"><code>git push -u origin master</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R git code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">-</span>u origin master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>对更新的book进行publish（发布）操作，在R studio Terminal窗口：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quarto publish gh<span class="sc">-</span>pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
