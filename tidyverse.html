@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Programming - GitHub代码托管</title>
+<title>R Programming - Preface</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tidyverse.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./dplyr.html" rel="next">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">GitHub代码托管</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">Preface</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./tidyverse.html" class="sidebar-item-text sidebar-link">
+            <a href="./tidyverse.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Preface</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -172,24 +138,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#本地代码托管至github" id="toc-本地代码托管至github" class="nav-link active" data-scroll-target="#本地代码托管至github">本地代码托管至GitHub</a></li>
-  <li><a href="#r基本操作" id="toc-r基本操作" class="nav-link" data-scroll-target="#r基本操作">R基本操作</a>
-  <ul class="collapse">
-  <li><a href="#快捷命令" id="toc-快捷命令" class="nav-link" data-scroll-target="#快捷命令">快捷命令</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GitHub代码托管</h1>
+<h1 class="title">Preface</h1>
 </div>
 
 
@@ -204,91 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="本地代码托管至github" class="level2">
-<h2 class="anchored" data-anchor-id="本地代码托管至github">本地代码托管至GitHub</h2>
-<p>已安装Git软件（可参考<a href="https://zhuanlan.zhihu.com/p/193140870">手把手教你用git上传项目到GitHub</a>），在需要托管的本地代码的目录右键单击 Open Git Bash here，并将该目录变成Git可以管理的仓库。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>目录下会出现.git（隐藏）文件夹，然后将所有文件添加到仓库。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>然后将文件提交至仓库，并填写注释。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"comments"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>复制GitHub上SSH公钥，与之进行链接。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git remote add origin git<span class="sc">@</span>github.com<span class="sc">:</span>AQ<span class="sc">-</span>Life<span class="sc">/</span>R<span class="sc">-</span>Programming.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>上传本地代码。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">-</span>u origin master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>对更新的book或website进行publish（发布）操作，在R studio Terminal窗口：</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quarto publish gh<span class="sc">-</span>pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="r基本操作" class="level1">
-<h1>R基本操作</h1>
-<section id="快捷命令" class="level2">
-<h2 class="anchored" data-anchor-id="快捷命令">快捷命令</h2>
-<table class="table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Alt + Shift + K</td>
-<td>显示Rstudio所有快捷命令</td>
-</tr>
-<tr class="even">
-<td>Alt + -</td>
-<td>输入等于号 &lt;-</td>
-</tr>
-<tr class="odd">
-<td>Ctrl + Shift + M</td>
-<td>输入通道符 %&gt;%</td>
-</tr>
-<tr class="even">
-<td>占位符 .</td>
-<td>mtcars %&gt;% select(cyl) %&gt;% colMeans() %&gt;% rep(1,.)</td>
-</tr>
-<tr class="odd">
-<td>help(package=“graphics”)</td>
-<td>查看某个package的帮助文档</td>
-</tr>
-<tr class="even">
-<td>?mean</td>
-<td>查看某个函数的帮助文档</td>
-</tr>
-<tr class="odd">
-<td>update.packages()</td>
-<td>更新所有package</td>
-</tr>
-<tr class="even">
-<td>remove.packages(“openxlsx”)</td>
-<td>删除某个package</td>
-</tr>
-<tr class="odd">
-<td>methods(plot)</td>
-<td>查看某个系列（子函数）的函数的使用场景</td>
-</tr>
-<tr class="even">
-<td><p>traceback()</p>
-<p>browser()</p>
-<p>debugone()/debug()</p></td>
-<td>debug函数</td>
-</tr>
-<tr class="odd">
-<td>rm(list = ls())</td>
-<td>清空当前环境</td>
-</tr>
-<tr class="even">
-<td>setwd(dir = “D:/XXXX/XX”)</td>
-<td>设置目录，需要注意R中目录路径需要使用正斜线/,而不是反斜线</td>
-</tr>
-<tr class="odd">
-<td>getwd()</td>
-<td>查看当前工作目录路径</td>
-</tr>
-</tbody>
-</table>
+<p>This is a Quarto book.</p>
+<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -526,13 +401,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">GitHub代码托管</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tidyverse.html" class="pagination-link">
-        <span class="nav-page-text">Preface</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./dplyr.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据处理与操作</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
