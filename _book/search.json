@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Programming",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "intro.html#github代码托管",
+    "href": "intro.html#github代码托管",
+    "title": "R Management",
+    "section": "GitHub代码托管",
+    "text": "GitHub代码托管\n\n本地代码托管至GitHub\n已安装Git软件（可参考手把手教你用git上传项目到GitHub），在需要托管的本地代码的目录右键单击 Open Git Bash here，并将该目录变成Git可以管理的仓库。\ngit init\n目录下会出现.git（隐藏）文件夹，然后将所有文件添加到仓库。\ngit add .\n然后将文件提交至仓库，并填写注释。\ngit commit -m \"comments\"\n复制GitHub上SSH公钥，与之进行链接。\ngit remote add origin git@github.com:AQ-Life/R-Programming.git\n上传本地代码。\ngit push -u origin master\n对更新的book或website进行publish（发布）操作，在R studio Terminal窗口：\nquarto publish gh-pages"
+  },
+  {
+    "objectID": "intro.html#r基本操作",
+    "href": "intro.html#r基本操作",
+    "title": "R Management",
+    "section": "R基本操作",
+    "text": "R基本操作\n\n快捷命令\n\n\n\n\n\n\n\nAlt + Shift + K\n显示Rstudio所有快捷命令\n\n\nAlt + -\n输入等于号 &lt;-\n\n\nCtrl + Shift + M\n输入通道符 %&gt;%\n\n\n占位符 .\nmtcars %&gt;% select(cyl) %&gt;% colMeans() %&gt;% rep(1,.)\n\n\nhelp(package=“graphics”)\n查看某个package的帮助文档\n\n\n?mean\n查看某个函数的帮助文档\n\n\nupdate.packages()\n更新所有package\n\n\nremove.packages(“openxlsx”)\n删除某个package\n\n\nmethods(plot)\n查看某个系列（子函数）的函数的使用场景\n\n\ntraceback()\nbrowser()\ndebugone()/debug()\ndebug函数\n\n\nrm(list = ls())\n清空当前环境\n\n\nsetwd(dir = “D:/XXXX/XX”)\n设置目录，需要注意R中目录路径需要使用正斜线/,而不是反斜线\n\n\ngetwd()\n查看当前工作目录路径"
+  },
+  {
+    "objectID": "tidyverse.html",
+    "href": "tidyverse.html",
+    "title": "R 数据分析流",
+    "section": "",
+    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "dplyr.html",
+    "href": "dplyr.html",
+    "title": "数据处理与操作",
+    "section": "",
+    "text": "filter 筛选行\ndataset %&gt;%    \n  filter(sex == \"F\", age &lt;= 13) #,=and  \ndataset %&gt;%    \n  filter(age %in% c(13, 15)) #%in% 同 in  \ndataset %&gt;%    \n  filter(!(age &lt; 13 | age &gt; 16)) #表示13&lt;=age&lt;=16，|同或，！同非 \ndataset %&gt;%    \n  filter(!age %in% c(13, 15)) #表示不要13，15行\n\n\nfilter 对多列进行筛选行\ndataset %&gt;%    \n  filter(if_all(4:6, ~ .x &gt; 75)) #表示筛选出第4-6列中所有列都&gt;75的行\ndataset %&gt;% \n  filter(if_any(where(is.character),is.na)) #从所有字符列中选择任意一列存在NA的行\n\n\nselect 选择列删掉列\ndataset %&gt;% \n  select(sex, height, weight)\n\ndataset %&gt;% \n  select(name:age) #从name到age之间的列\n\ndataset %&gt;% \n  select(1:3) #选择第1到第3列\n\ndataset %&gt;% \n  select(-name, -age) #drop name age列\n\ndataset %&gt;% \n  select(last_col(2)) #选择倒数2列\n\ndataset %&gt;% \n  select(where(is.numeric)) #选择所有数值列\n\n\npull 取单个变量作为一个向量\ndataset %&gt;% \n  head(n = 5) %&gt;% \n  pull(name)  #取dataset中name变量的前5行作为一个向量\n\n\nrename 修改列名\ndataset %&gt;% \n  rename(new_name = old_name)\n\n\nmutate 衍生新的列\ndataset %&gt;% \n  mutate(sex = if_else(sex == \"男\", \"M\", \"F\"))\n\ndataset %&gt;% \n  mutate(grade = case_when(math &gt;= 75 ~ \"high\",\n                           math &gt;= 60 ~ \"middle\",\n                           TRUE, ~ \"low\"))\n\n\nacross 对多个列处理\ndataset %&gt;% \n  mutate(across(everything(), as.character)) #将所有列转换为字符\n\ndataset %&gt;% \n  mutate(across(contains(\"Length\")|contains(\"Width\"), ~ .x*10)) #将列名中含有Length或Width字符的列*10\n\n\narrange 排序\ndataset %&gt;% \n  arrange(desc(col1), col2) #按照col1倒序排序，再按照col2顺序排序,注意缺失值NA排在最后面，不同于SAS\n\n\ndistinct 去重\ndataset %&gt;% \n  distinct(col1, col2, .keep_all = TRUE) #.keep_all 是否要保留所有列\n\n\ncount 计数\ndataset %&gt;% \n  count(col1) #计算col1各个组别的数量\n\n\npivot_longer, pivot_wider 转置\ndataset %&gt;% \n  pivot_longer(cols = paste0(\"header\", 1:5),\n               names_to = \"header_label\",\n               values_to = \"header\")\n\ndataset %&gt;% \n  pivot_wider(names_from = col1,\n              values_from = c(col2, col3), #可以设置多个列进行转置\n              values_fill = 0)\n\n\nleft_join, right_join, full_join横向合并数据集\ndataset %&gt;% \n  left_join(dataset1, dataset2, by = c(\"bycol1\", \"bycol2\"))\n\n\nrbind.fill 纵向合并数据集\ndataset %&gt;% \n  rbind.fill(dataset1, dataset)\n\n\ncumsum, lag 实现有条件的累加计数\ndataset %&gt;% \n  mutate(TiaoJian = x&lt;=lag(x) & y&lt;lag(y),\n         TiaoJianYN = ifelse(is.na(TiaoJian),FALSE,TiaoJian),\n         page = cumsum(TiaoJianYN + 0L))"
+  },
+  {
+    "objectID": "stringr.html",
+    "href": "stringr.html",
+    "title": "字符处理",
+    "section": "",
+    "text": "paste, paste0 连接字符\ndataset %&gt;% \n  mutate(Ttext = paste0(col_text, collapse = \"@\")) #paste与paste0主要区别是paste0连接后的字符串之间不含有空格\n\n\nstrsplit 切割字符串\nunlist(strsplit(\"a.b.c\", \"[.]\"))\n\n\nstr_split_fixed 切割字符串\ndataset %&gt;% \n  mutate(domain = str_split_fixed(annotation, \"\\\\.\", n=3)[,1],\n         assigned = str_split_fixed(annotation, \"\\\\.\", n=3)[,2]) #将annotation列以.为分隔符切割成3部分，并取第一部分作为变量domain\n\n\nstr_extract_all 提取字符串\ndataset %&gt;% \n  mutate(col_order = as.numeric(str_extract_all(col_orderc, \"[0-9]\")))\n\n\nstr_replace_all 压缩字符串\ndataset %&gt;% \n  mutate(llength = nchar(str_replace_all(text, \" \", \"\"), type = \"bytes\") - nchar(str_replace_all(text, \" \", \"\"))) #计算变量text去掉所有空格后（包括内部空格）字节长度与字符长度的差值"
+  }
+]

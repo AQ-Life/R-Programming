@@ -2,22 +2,22 @@ project:
   type: book
 
 book:
-  title: "Q_RP"
+  title: "R Programming"
   author: "Qi"
   date: "2024/1/11"
   chapters:
     - index.qmd
-    - part: intro.qmd
+    - intro.qmd
+    - part: tidyverse.qmd
       chapters: 
-        - intro.qmd
+        - dplyr.qmd
+        - stringr.qmd
 
 bibliography: references.bib
 
 format:
   html:
     theme: custom.scss
-  pdf:
-    documentclass: scrreprt
 
 editor: visual
 

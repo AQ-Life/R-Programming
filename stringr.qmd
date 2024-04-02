@@ -1,0 +1,36 @@
+## 字符处理 {.unnumbered}
+
+### paste, paste0 连接字符
+
+``` r
+dataset %>% 
+  mutate(Ttext = paste0(col_text, collapse = "@")) #paste与paste0主要区别是paste0连接后的字符串之间不含有空格
+```
+
+### strsplit 切割字符串
+
+``` r
+unlist(strsplit("a.b.c", "[.]"))
+```
+
+### str_split_fixed 切割字符串
+
+``` r
+dataset %>% 
+  mutate(domain = str_split_fixed(annotation, "\\.", n=3)[,1],
+         assigned = str_split_fixed(annotation, "\\.", n=3)[,2]) #将annotation列以.为分隔符切割成3部分，并取第一部分作为变量domain
+```
+
+### str_extract_all 提取字符串
+
+``` r
+dataset %>% 
+  mutate(col_order = as.numeric(str_extract_all(col_orderc, "[0-9]")))
+```
+
+### str_replace_all 压缩字符串
+
+``` r
+dataset %>% 
+  mutate(llength = nchar(str_replace_all(text, " ", ""), type = "bytes") - nchar(str_replace_all(text, " ", ""))) #计算变量text去掉所有空格后（包括内部空格）字节长度与字符长度的差值
+```
