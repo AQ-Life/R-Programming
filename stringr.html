@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Programming - 2&nbsp; 字符处理</title>
+<title>R Programming - 3&nbsp; 字符处理</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">Preface</a></li><li class="breadcrumb-item"><a href="./stringr.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">字符处理</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">Preface</a></li><li class="breadcrumb-item"><a href="./stringr.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">字符处理</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -138,29 +138,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">GitHub代码托管</span></span>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">GitHub代码托管</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./tidyverse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据处理与操作</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据处理与操作</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stringr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">字符处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">字符处理</span></span></a>
   </div>
 </li>
       </ul>
@@ -175,11 +177,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#paste-paste0-连接字符" id="toc-paste-paste0-连接字符" class="nav-link active" data-scroll-target="#paste-paste0-连接字符"><span class="header-section-number">2.0.1</span> paste, paste0 连接字符</a></li>
-  <li><a href="#strsplit-切割字符串" id="toc-strsplit-切割字符串" class="nav-link" data-scroll-target="#strsplit-切割字符串"><span class="header-section-number">2.0.2</span> strsplit 切割字符串</a></li>
-  <li><a href="#str_split_fixed-切割字符串" id="toc-str_split_fixed-切割字符串" class="nav-link" data-scroll-target="#str_split_fixed-切割字符串"><span class="header-section-number">2.0.3</span> str_split_fixed 切割字符串</a></li>
-  <li><a href="#str_extract_all-提取字符串" id="toc-str_extract_all-提取字符串" class="nav-link" data-scroll-target="#str_extract_all-提取字符串"><span class="header-section-number">2.0.4</span> str_extract_all 提取字符串</a></li>
-  <li><a href="#str_replace_all-压缩字符串" id="toc-str_replace_all-压缩字符串" class="nav-link" data-scroll-target="#str_replace_all-压缩字符串"><span class="header-section-number">2.0.5</span> str_replace_all 压缩字符串</a></li>
+  <li><a href="#paste-paste0-连接字符" id="toc-paste-paste0-连接字符" class="nav-link active" data-scroll-target="#paste-paste0-连接字符"><span class="header-section-number">3.0.1</span> paste, paste0 连接字符</a></li>
+  <li><a href="#strsplit-切割字符串" id="toc-strsplit-切割字符串" class="nav-link" data-scroll-target="#strsplit-切割字符串"><span class="header-section-number">3.0.2</span> strsplit 切割字符串</a></li>
+  <li><a href="#str_split_fixed-切割字符串" id="toc-str_split_fixed-切割字符串" class="nav-link" data-scroll-target="#str_split_fixed-切割字符串"><span class="header-section-number">3.0.3</span> str_split_fixed 切割字符串</a></li>
+  <li><a href="#str_extract_all-提取字符串" id="toc-str_extract_all-提取字符串" class="nav-link" data-scroll-target="#str_extract_all-提取字符串"><span class="header-section-number">3.0.4</span> str_extract_all 提取字符串</a></li>
+  <li><a href="#str_replace_all-压缩字符串" id="toc-str_replace_all-压缩字符串" class="nav-link" data-scroll-target="#str_replace_all-压缩字符串"><span class="header-section-number">3.0.5</span> str_replace_all 压缩字符串</a></li>
   </ul>
 </nav>
     </div>
@@ -188,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">字符处理</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">字符处理</span></h1>
 </div>
 
 
@@ -203,28 +205,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="paste-paste0-连接字符" class="level3" data-number="2.0.1">
-<h3 data-number="2.0.1" class="anchored" data-anchor-id="paste-paste0-连接字符"><span class="header-section-number">2.0.1</span> paste, paste0 连接字符</h3>
+<section id="paste-paste0-连接字符" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="paste-paste0-连接字符"><span class="header-section-number">3.0.1</span> paste, paste0 连接字符</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Ttext =</span> <span class="fu">paste0</span>(col_text, <span class="at">collapse =</span> <span class="st">"@"</span>)) <span class="co">#paste与paste0主要区别是paste0连接后的字符串之间不含有空格</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="strsplit-切割字符串" class="level3" data-number="2.0.2">
-<h3 data-number="2.0.2" class="anchored" data-anchor-id="strsplit-切割字符串"><span class="header-section-number">2.0.2</span> strsplit 切割字符串</h3>
+<section id="strsplit-切割字符串" class="level3" data-number="3.0.2">
+<h3 data-number="3.0.2" class="anchored" data-anchor-id="strsplit-切割字符串"><span class="header-section-number">3.0.2</span> strsplit 切割字符串</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(<span class="fu">strsplit</span>(<span class="st">"a.b.c"</span>, <span class="st">"[.]"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="str_split_fixed-切割字符串" class="level3" data-number="2.0.3">
-<h3 data-number="2.0.3" class="anchored" data-anchor-id="str_split_fixed-切割字符串"><span class="header-section-number">2.0.3</span> str_split_fixed 切割字符串</h3>
+<section id="str_split_fixed-切割字符串" class="level3" data-number="3.0.3">
+<h3 data-number="3.0.3" class="anchored" data-anchor-id="str_split_fixed-切割字符串"><span class="header-section-number">3.0.3</span> str_split_fixed 切割字符串</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">domain =</span> <span class="fu">str_split_fixed</span>(annotation, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="at">n=</span><span class="dv">3</span>)[,<span class="dv">1</span>],</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">assigned =</span> <span class="fu">str_split_fixed</span>(annotation, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>, <span class="at">n=</span><span class="dv">3</span>)[,<span class="dv">2</span>]) <span class="co">#将annotation列以.为分隔符切割成3部分，并取第一部分作为变量domain</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="str_extract_all-提取字符串" class="level3" data-number="2.0.4">
-<h3 data-number="2.0.4" class="anchored" data-anchor-id="str_extract_all-提取字符串"><span class="header-section-number">2.0.4</span> str_extract_all 提取字符串</h3>
+<section id="str_extract_all-提取字符串" class="level3" data-number="3.0.4">
+<h3 data-number="3.0.4" class="anchored" data-anchor-id="str_extract_all-提取字符串"><span class="header-section-number">3.0.4</span> str_extract_all 提取字符串</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">col_order =</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract_all</span>(col_orderc, <span class="st">"[0-9]"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="str_replace_all-压缩字符串" class="level3" data-number="2.0.5">
-<h3 data-number="2.0.5" class="anchored" data-anchor-id="str_replace_all-压缩字符串"><span class="header-section-number">2.0.5</span> str_replace_all 压缩字符串</h3>
+<section id="str_replace_all-压缩字符串" class="level3" data-number="3.0.5">
+<h3 data-number="3.0.5" class="anchored" data-anchor-id="str_replace_all-压缩字符串"><span class="header-section-number">3.0.5</span> str_replace_all 压缩字符串</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">llength =</span> <span class="fu">nchar</span>(<span class="fu">str_replace_all</span>(text, <span class="st">" "</span>, <span class="st">""</span>), <span class="at">type =</span> <span class="st">"bytes"</span>) <span class="sc">-</span> <span class="fu">nchar</span>(<span class="fu">str_replace_all</span>(text, <span class="st">" "</span>, <span class="st">""</span>))) <span class="co">#计算变量text去掉所有空格后（包括内部空格）字节长度与字符长度的差值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
@@ -468,7 +470,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./dplyr.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据处理与操作</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据处理与操作</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
