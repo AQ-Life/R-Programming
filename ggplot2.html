@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Qi">
-<meta name="dcterms.date" content="2024-01-11">
 
-<title>R Programming</title>
+<title>R Programming - 4&nbsp; 数据可视化</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./stringr.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">R 数据分析流</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据可视化</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -102,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -146,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link">
+  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
   </div>
 </li>
@@ -162,7 +160,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#ggplot2-语法" id="toc-ggplot2-语法" class="nav-link active" data-scroll-target="#ggplot2-语法"><span class="header-section-number">4.0.1</span> ggplot2 语法</a></li>
+  <li><a href="#geom图层" id="toc-geom图层" class="nav-link" data-scroll-target="#geom图层"><span class="header-section-number">4.0.2</span> geom图层</a></li>
+  <li><a href="#aes-specs映射属性" id="toc-aes-specs映射属性" class="nav-link" data-scroll-target="#aes-specs映射属性"><span class="header-section-number">4.0.3</span> aes-specs映射属性</a></li>
+  <li><a href="#theme主题" id="toc-theme主题" class="nav-link" data-scroll-target="#theme主题"><span class="header-section-number">4.0.4</span> theme主题</a></li>
   </ul>
 </nav>
     </div>
@@ -171,26 +172,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R Programming</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据可视化</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Qi </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 11, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -198,10 +187,613 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<section id="ggplot2-语法" class="level3" data-number="4.0.1">
+<h3 data-number="4.0.1" class="anchored" data-anchor-id="ggplot2-语法"><span class="header-section-number">4.0.1</span> ggplot2 语法</h3>
+<p>ggplot2的核心理念是将数据和绘图分离</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>data</td>
+<td>数据</td>
+</tr>
+<tr class="even">
+<td>aes</td>
+<td>数据中的变量和绘图属性之间的映射关系</td>
+</tr>
+<tr class="odd">
+<td>geom</td>
+<td>至少一个几何图层</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="geom图层" class="level3" data-number="4.0.2">
+<h3 data-number="4.0.2" class="anchored" data-anchor-id="geom图层"><span class="header-section-number">4.0.2</span> geom图层</h3>
+<section id="散点图" class="level4" data-number="4.0.2.1">
+<h4 data-number="4.0.2.1" class="anchored" data-anchor-id="散点图"><span class="header-section-number">4.0.2.1</span> 散点图</h4>
+<p>geom_point</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+</tr>
+<tr class="even">
+<td>y</td>
+</tr>
+<tr class="odd">
+<td>alpha</td>
+</tr>
+<tr class="even">
+<td>colour</td>
+</tr>
+<tr class="odd">
+<td>fill</td>
+</tr>
+<tr class="even">
+<td>group</td>
+</tr>
+<tr class="odd">
+<td>shape</td>
+</tr>
+<tr class="even">
+<td>size</td>
+</tr>
+<tr class="odd">
+<td>stroke</td>
+</tr>
+</tbody>
+</table>
+<p>geom_path: 根据数据中观测的顺序连接坐标点</p>
+<p>geom_step: 阶梯图</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+<th>argument</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>lineend</td>
+<td>round; square; butt</td>
+</tr>
+<tr class="even">
+<td>y</td>
+<td>linejoin</td>
+<td>round; bevel; mitre</td>
+</tr>
+<tr class="odd">
+<td>alpha</td>
+<td>linemitre</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>color</td>
+<td>arrow</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>group</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>linetype</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>linewidth</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="参考线" class="level4" data-number="4.0.2.2">
+<h4 data-number="4.0.2.2" class="anchored" data-anchor-id="参考线"><span class="header-section-number">4.0.2.2</span> 参考线</h4>
+<p>geom_adline: 斜线</p>
+<p>geom_hline: 水平线</p>
+<p>geom_vline: 垂直线</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+<th>geom</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>alpha</td>
+<td>geom_abline</td>
+<td>slope; intercept</td>
+</tr>
+<tr class="even">
+<td>color</td>
+<td>geom_vline</td>
+<td>xintercept</td>
+</tr>
+<tr class="odd">
+<td>linetype</td>
+<td>geom_hline</td>
+<td>yintercept</td>
+</tr>
+<tr class="even">
+<td>linewidth</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="条形图" class="level4" data-number="4.0.2.3">
+<h4 data-number="4.0.2.3" class="anchored" data-anchor-id="条形图"><span class="header-section-number">4.0.2.3</span> 条形图</h4>
+<p>geom_col</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+<th>argument</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>just</td>
+<td>default: 0.5</td>
+</tr>
+<tr class="even">
+<td>y</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>alpha</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>color</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>fill</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>group</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>linetype</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>linewidth</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="点阵图" class="level4" data-number="4.0.2.4">
+<h4 data-number="4.0.2.4" class="anchored" data-anchor-id="点阵图"><span class="header-section-number">4.0.2.4</span> 点阵图</h4>
+<p>geom_dotplot</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+<th>argument</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>method</td>
+<td>dotdensity; histodot</td>
+</tr>
+<tr class="even">
+<td>y</td>
+<td>binaxis</td>
+<td>x; y</td>
+</tr>
+<tr class="odd">
+<td>alpha</td>
+<td>binwidth</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>color</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>fill</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>group</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>linetype</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>stroke</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>weight</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="垂直区间图误差条" class="level4" data-number="4.0.2.5">
+<h4 data-number="4.0.2.5" class="anchored" data-anchor-id="垂直区间图误差条"><span class="header-section-number">4.0.2.5</span> 垂直区间图（误差条）</h4>
+<p>geom_crossbar / geom_errorbar / geom_linerange / geom_pointrange</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+</tr>
+<tr class="even">
+<td>y</td>
+</tr>
+<tr class="odd">
+<td>xmin</td>
+</tr>
+<tr class="even">
+<td>ymin</td>
+</tr>
+<tr class="odd">
+<td>xmax</td>
+</tr>
+<tr class="even">
+<td>ymax</td>
+</tr>
+<tr class="odd">
+<td>alpha</td>
+</tr>
+<tr class="even">
+<td>color</td>
+</tr>
+<tr class="odd">
+<td>group</td>
+</tr>
+<tr class="even">
+<td>linetype</td>
+</tr>
+<tr class="odd">
+<td>linewidth</td>
+</tr>
+</tbody>
+</table>
+<p>Note: geom_pointrange 多一个aes(size).</p>
+</section>
+<section id="线段箭头" class="level4" data-number="4.0.2.6">
+<h4 data-number="4.0.2.6" class="anchored" data-anchor-id="线段箭头"><span class="header-section-number">4.0.2.6</span> 线段（箭头）</h4>
+<p>geom_segment: (x,y) 到 (xend,yend)的直线</p>
+<p>geom_curve: 曲线</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+</tr>
+<tr class="even">
+<td>y</td>
+</tr>
+<tr class="odd">
+<td>xend</td>
+</tr>
+<tr class="even">
+<td>yend</td>
+</tr>
+<tr class="odd">
+<td>alpha</td>
+</tr>
+<tr class="even">
+<td>colour</td>
+</tr>
+<tr class="odd">
+<td>group</td>
+</tr>
+<tr class="even">
+<td>linetype</td>
+</tr>
+<tr class="odd">
+<td>linewidth</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="区间图" class="level4" data-number="4.0.2.7">
+<h4 data-number="4.0.2.7" class="anchored" data-anchor-id="区间图"><span class="header-section-number">4.0.2.7</span> 区间图</h4>
+<p>geom_ribbon: 绘制从ymin–&gt;ymax一个区域图</p>
+<p>geom_area: ymin =0 时的特殊情况</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+</tr>
+<tr class="even">
+<td>y</td>
+</tr>
+<tr class="odd">
+<td>xmin</td>
+</tr>
+<tr class="even">
+<td>ymin</td>
+</tr>
+<tr class="odd">
+<td>xmax</td>
+</tr>
+<tr class="even">
+<td>ymax</td>
+</tr>
+<tr class="odd">
+<td>alpha</td>
+</tr>
+<tr class="even">
+<td>color</td>
+</tr>
+<tr class="odd">
+<td>fill</td>
+</tr>
+<tr class="even">
+<td>group</td>
+</tr>
+<tr class="odd">
+<td>linetype</td>
+</tr>
+<tr class="even">
+<td>linewidth</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="文本标签" class="level4" data-number="4.0.2.8">
+<h4 data-number="4.0.2.8" class="anchored" data-anchor-id="文本标签"><span class="header-section-number">4.0.2.8</span> 文本标签</h4>
+<p>geom_text: 只有文本</p>
+<p>geom_label: 文本背后还有一个背景文本框（矩形）</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>aes</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>y</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>label</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>alpha</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>angle</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>color</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>family</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>fontface</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>group</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>hjust</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>lineheight</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>size</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>vjust</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>fill</td>
+<td>only for geom_label</td>
+</tr>
+</tbody>
+</table>
+<p>Note: <code>check_overlap</code>&nbsp;仅对geom_text有效。</p>
+</section>
+</section>
+<section id="aes-specs映射属性" class="level3" data-number="4.0.3">
+<h3 data-number="4.0.3" class="anchored" data-anchor-id="aes-specs映射属性"><span class="header-section-number">4.0.3</span> aes-specs映射属性</h3>
+<section id="linetype" class="level4" data-number="4.0.3.1">
+<h4 data-number="4.0.3.1" class="anchored" data-anchor-id="linetype"><span class="header-section-number">4.0.3.1</span> linetype</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>linetype (numeric)</th>
+<th>linetypevalue (character)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>blank</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>solid</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>dashed</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>dotted</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>dotdash</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>longdash</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>twodash</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>1f</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>81</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>88</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>8f</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f8</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ff</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="shape形状" class="level4" data-number="4.0.3.2">
+<h4 data-number="4.0.3.2" class="anchored" data-anchor-id="shape形状"><span class="header-section-number">4.0.3.2</span> shape形状</h4>
+<p><img src="images/clipboard-498086216.png" class="img-fluid"></p>
+</section>
+<section id="stoke" class="level4" data-number="4.0.3.3">
+<h4 data-number="4.0.3.3" class="anchored" data-anchor-id="stoke"><span class="header-section-number">4.0.3.3</span> stoke</h4>
+<p><img src="images/clipboard-943591392.png" class="img-fluid"></p>
+<p>justification对齐方式</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>just</th>
+<th>comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hjust</td>
+<td>水平对齐</td>
+</tr>
+<tr class="even">
+<td>vjust</td>
+<td>纵向对齐</td>
+</tr>
+<tr class="odd">
+<td>hjust = 0</td>
+<td>左对齐；left</td>
+</tr>
+<tr class="even">
+<td>hjust = 0.5</td>
+<td>居中；middle</td>
+</tr>
+<tr class="odd">
+<td>hjust = 1</td>
+<td>右对齐；right</td>
+</tr>
+<tr class="even">
+<td>vjust = 0</td>
+<td>底部；bottom</td>
+</tr>
+<tr class="odd">
+<td>vjust = 0.5</td>
+<td>中间；center</td>
+</tr>
+<tr class="even">
+<td>vjust = 1</td>
+<td>顶部；top</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="theme主题" class="level3" data-number="4.0.4">
+<h3 data-number="4.0.4" class="anchored" data-anchor-id="theme主题"><span class="header-section-number">4.0.4</span> theme主题</h3>
+<p><a href="https://ggplot2tor.com/theme/">A complete guide to theme (ggplot2tor.com)</a></p>
 
 
 </section>
@@ -442,11 +1034,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./stringr.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">字符处理</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text">R Management</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

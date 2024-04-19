@@ -177,6 +177,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">字符处理</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -202,7 +208,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#测试函数" id="toc-测试函数" class="nav-link" data-scroll-target="#测试函数"><span class="header-section-number">1.3.4</span> 测试函数</a></li>
   <li><a href="#更新description" id="toc-更新description" class="nav-link" data-scroll-target="#更新description"><span class="header-section-number">1.3.5</span> 更新DESCRIPTION</a></li>
   <li><a href="#构建r-package并检查" id="toc-构建r-package并检查" class="nav-link" data-scroll-target="#构建r-package并检查"><span class="header-section-number">1.3.6</span> 构建R Package并检查</a></li>
-  <li><a href="#上传r-package-到github" id="toc-上传r-package-到github" class="nav-link" data-scroll-target="#上传r-package-到github"><span class="header-section-number">1.3.7</span> 上传R Package 到GitHub</a></li>
+  <li><a href="#创建readme文档" id="toc-创建readme文档" class="nav-link" data-scroll-target="#创建readme文档"><span class="header-section-number">1.3.7</span> 创建readme文档</a></li>
+  <li><a href="#上传r-package-到github" id="toc-上传r-package-到github" class="nav-link" data-scroll-target="#上传r-package-到github"><span class="header-section-number">1.3.8</span> 上传R Package 到GitHub</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -311,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quarto publish gh<span class="sc">-</span>pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="table">
 <colgroup>
-<col style="width: 65%">
+<col style="width: 62%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -322,6 +329,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="r-package-开发" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="r-package-开发"><span class="header-section-number">1.3</span> R package 开发</h2>
+<p>R Package开发参考R文档操作指南：</p>
+<p><a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a></p>
 <section id="新建项目" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="新建项目"><span class="header-section-number">1.3.1</span> 新建项目</h3>
 <p>File –&gt; New Project –&gt; New Directory –&gt; R Package –&gt; type Package name –&gt; select project root path – &gt; Create Project</p>
@@ -365,14 +374,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="上传r-package-到github" class="level3" data-number="1.3.7">
-<h3 data-number="1.3.7" class="anchored" data-anchor-id="上传r-package-到github"><span class="header-section-number">1.3.7</span> 上传R Package 到GitHub</h3>
+<section id="创建readme文档" class="level3" data-number="1.3.7">
+<h3 data-number="1.3.7" class="anchored" data-anchor-id="创建readme文档"><span class="header-section-number">1.3.7</span> 创建readme文档</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_readme_rmd</span>() <span class="co">#创建.rmd文档</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">build_readme</span>() <span class="co">#文档创建之后创建.md文档</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="上传r-package-到github" class="level3" data-number="1.3.8">
+<h3 data-number="1.3.8" class="anchored" data-anchor-id="上传r-package-到github"><span class="header-section-number">1.3.8</span> 上传R Package 到GitHub</h3>
 <ol type="1">
 <li><p>为新建的R Package 创建新的仓库后，并git上传代码到GitHub</p></li>
 <li><p>从GitHub上安装刚开发的R Package</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"XXXX/xxxx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"XXXX/xxxx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>应用R Package</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xxxx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xxxx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 
 
