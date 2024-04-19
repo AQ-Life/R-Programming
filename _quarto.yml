@@ -7,11 +7,14 @@ book:
   date: "2024/1/11"
   chapters:
     - index.qmd
-    - intro.qmd
+    - part: intro.qmd
+      chapters: 
+        - rmanage.qmd
     - part: tidyverse.qmd
       chapters: 
         - dplyr.qmd
         - stringr.qmd
+        - ggplot2.qmd
 
 bibliography: references.bib
 
