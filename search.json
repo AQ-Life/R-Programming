@@ -4,62 +4,205 @@
     "href": "index.html",
     "title": "R Programming",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "crumbs": [
+      "Preface"
+    ]
   },
   {
-    "objectID": "intro.html#this-is-a-quarto-book.",
-    "href": "intro.html#this-is-a-quarto-book.",
+    "objectID": "intro.html",
+    "href": "intro.html",
     "title": "R Management",
-    "section": "This is a Quarto book.",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "section": "",
+    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "crumbs": [
+      "R Management"
+    ]
+  },
+  {
+    "objectID": "rmanage.html",
+    "href": "rmanage.html",
+    "title": "1  R Management",
+    "section": "",
+    "text": "1.1 R基本操作",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>R Management</span>"
+    ]
   },
   {
     "objectID": "rmanage.html#r基本操作",
     "href": "rmanage.html#r基本操作",
     "title": "1  R Management",
-    "section": "1.1 R基本操作",
-    "text": "1.1 R基本操作\n\n1.1.1 快捷命令\n\n\n\n\n\n\n\nAlt + Shift + K\n显示Rstudio所有快捷命令\n\n\nAlt + -\n输入等于号 &lt;-\n\n\nCtrl + Shift + M\n输入通道符 %&gt;%\n\n\n占位符 .\nmtcars %&gt;% select(cyl) %&gt;% colMeans() %&gt;% rep(1,.)\n\n\nhelp(package=“graphics”)\n查看某个package的帮助文档\n\n\n?mean\n查看某个函数的帮助文档\n\n\nupdate.packages()\n更新所有package\n\n\nremove.packages(“openxlsx”)\n删除某个package\n\n\nmethods(plot)\n查看某个系列（子函数）的函数的使用场景\n\n\ntraceback()\nbrowser()\ndebugone()/debug()\ndebug函数\n\n\nrm(list = ls())\n清空当前环境\n\n\nsetwd(dir = “D:/XXXX/XX”)\n设置目录，需要注意R中目录路径需要使用正斜线/,而不是反斜线\n\n\ngetwd()\n查看当前工作目录路径GitHub代码托管"
+    "section": "",
+    "text": "1.1.1 快捷命令\n\n\n\n\n\n\n\nAlt + Shift + K\n显示Rstudio所有快捷命令\n\n\nAlt + -\n输入等于号 &lt;-\n\n\nCtrl + Shift + M\n输入通道符 %&gt;%\n\n\n占位符 .\nmtcars %&gt;% select(cyl) %&gt;% colMeans() %&gt;% rep(1,.)\n\n\nhelp(package=“graphics”)\n查看某个package的帮助文档\n\n\n?mean\n查看某个函数的帮助文档\n\n\nupdate.packages()\n更新所有package\n\n\nremove.packages(“openxlsx”)\n删除某个package\n\n\nmethods(plot)\n查看某个系列（子函数）的函数的使用场景\n\n\ntraceback()\nbrowser()\ndebugone()/debug()\ndebug函数\n\n\nrm(list = ls())\n清空当前环境\n\n\nsetwd(dir = “D:/XXXX/XX”)\n设置目录，需要注意R中目录路径需要使用正斜线/,而不是反斜线\n\n\ngetwd()\n查看当前工作目录路径GitHub代码托管",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>R Management</span>"
+    ]
   },
   {
     "objectID": "rmanage.html#本地代码托管至github",
     "href": "rmanage.html#本地代码托管至github",
     "title": "1  R Management",
     "section": "1.2 本地代码托管至GitHub",
-    "text": "1.2 本地代码托管至GitHub\n已安装Git软件（可参考手把手教你用git上传项目到GitHub），在需要托管的本地代码的目录右键单击 Open Git Bash here，并将该目录变成Git可以管理的仓库。\ngit init\n目录下会出现.git（隐藏）文件夹，然后将所有文件添加到仓库。\ngit add .\n然后将文件提交至仓库，并填写注释。\ngit commit -m \"comments\"\n复制GitHub上SSH公钥，与之进行链接。\ngit remote add origin git@github.com:AQ-Life/R-Programming.git\n上传本地代码。\ngit push -u origin master\n对更新的book或website进行publish（发布）操作，在R studio Terminal窗口：\nquarto publish gh-pages"
+    "text": "1.2 本地代码托管至GitHub\n已安装Git软件（可参考手把手教你用git上传项目到GitHub），在需要托管的本地代码的目录右键单击 Open Git Bash here，并将该目录变成Git可以管理的仓库。\ngit init\n目录下会出现.git（隐藏）文件夹，然后将所有文件添加到仓库。\ngit add .\n然后将文件提交至仓库，并填写注释。\ngit commit -m \"comments\"\n复制GitHub上SSH公钥，与之进行链接。\ngit remote add origin git@github.com:AQ-Life/R-Programming.git\n上传本地代码。\ngit push -u origin master\n对更新的book或website进行publish（发布）操作，在R studio Terminal窗口：\nquarto publish gh-pages",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>R Management</span>"
+    ]
   },
   {
     "objectID": "rmanage.html#r-package-开发",
     "href": "rmanage.html#r-package-开发",
     "title": "1  R Management",
     "section": "1.3 R package 开发",
-    "text": "1.3 R package 开发\nR Package开发参考R文档操作指南：\nWriting R Extensions\n\n1.3.1 新建项目\nFile –&gt; New Project –&gt; New Directory –&gt; R Package –&gt; type Package name –&gt; select project root path – &gt; Create Project\n\n\n1.3.2 添加（多个）自定义函数与注释\nxxx &lt;- function(xx1, xx2){\n  ...\n}\n选中函数名（xxx），Ctrl+Shift+Alt+R 快捷键添加自定义函数的头部注释，如下：\n#' Title\n#'\n#' @param xx1\n#' @param xx2\n#'\n#' @return\n#' @export\n#'\n#' @examples\nxxx &lt;- function(xx1, xx2){\n  ...\n}\n\n\n1.3.3 生成/man和NAMESPACE文档\nlibrary(devtools)\n\ndevtools::document()\ndevtools::load_all()\n\n\n1.3.4 测试函数\nmyfunction1(xx1)\nmyfunction2(xx2)\n\n\n1.3.5 更新DESCRIPTION\n\n\n1.3.6 构建R Package并检查\ndevtools::build()\ndevtools::check()\n\n\n1.3.7 创建readme文档\nuse_readme_rmd() #创建.rmd文档\nbuild_readme() #文档创建之后创建.md文档\n\n\n1.3.8 上传R Package 到GitHub\n\n为新建的R Package 创建新的仓库后，并git上传代码到GitHub\n从GitHub上安装刚开发的R Package\ndevtools::install_github(\"XXXX/xxxx\")\n应用R Package\nlibrary(xxxx)"
+    "text": "1.3 R package 开发\nR Package开发参考R文档操作指南：\nWriting R Extensions\n\n1.3.1 新建项目\nFile –&gt; New Project –&gt; New Directory –&gt; R Package –&gt; type Package name –&gt; select project root path – &gt; Create Project\n\n\n1.3.2 添加（多个）自定义函数与注释\nxxx &lt;- function(xx1, xx2){\n  ...\n}\n选中函数名（xxx），Ctrl+Shift+Alt+R 快捷键添加自定义函数的头部注释，如下：\n#' Title\n#'\n#' @param xx1\n#' @param xx2\n#'\n#' @return\n#' @export\n#'\n#' @examples\nxxx &lt;- function(xx1, xx2){\n  ...\n}\n\n\n1.3.3 生成/man和NAMESPACE文档\nlibrary(devtools)\n\ndevtools::document()\ndevtools::load_all()\n\n\n1.3.4 测试函数\nmyfunction1(xx1)\nmyfunction2(xx2)\n\n\n1.3.5 更新DESCRIPTION\n\n\n1.3.6 构建R Package并检查\ndevtools::build()\ndevtools::check()\n\n\n1.3.7 创建readme文档\nuse_readme_rmd() #创建.rmd文档\nbuild_readme() #文档创建之后创建.md文档\n\n\n1.3.8 上传R Package 到GitHub\n\n为新建的R Package 创建新的仓库后，并git上传代码到GitHub\n从GitHub上安装刚开发的R Package\ndevtools::install_github(\"XXXX/xxxx\")\n应用R Package\nlibrary(xxxx)",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>R Management</span>"
+    ]
+  },
+  {
+    "objectID": "latex.html",
+    "href": "latex.html",
+    "title": "2  LaTex 应用",
+    "section": "",
+    "text": "2.1 特殊字符",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LaTex 应用</span>"
+    ]
+  },
+  {
+    "objectID": "latex.html#特殊字符",
+    "href": "latex.html#特殊字符",
+    "title": "2  LaTex 应用",
+    "section": "",
+    "text": "符号\n命令\n符号\n命令\n符号\n命令\n\n\n\\(\\$\\)\n\\$\n\\(\\%\\)\n\\%\n\\(\\^{}\\)\n\\^{}\n\n\n\\(\\_\\)\n\\_\n\\(\\{\\)\n\\{\n\\(\\#\\)\n\\#\n\n\n\\(\\&\\)\n\\&\n\\(\\}\\)\n\\}\n\\(\\~{}\\)\n\\~{}\n\n\n\\(\\backslash\\)",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LaTex 应用</span>"
+    ]
+  },
+  {
+    "objectID": "latex.html#希腊字母",
+    "href": "latex.html#希腊字母",
+    "title": "2  LaTex 应用",
+    "section": "2.2 希腊字母",
+    "text": "2.2 希腊字母\n\n\n\n\n\n\n\n\n\n\n\n符号\n命令\n符号\n命令\n符号\n命令\n\n\n\n\n\\(\\alpha\\)\n\n\\(\\beta\\)\n\n\\(\\gamma\\)\n\n\n\n\\(\\Gamma\\)\n\n\\(\\delta\\)\n\n\\(\\Delta\\)\n\n\n\n\\(\\epsilon\\)\n\n\\(\\varepsilon\\)\n\n\\(\\zeta\\)\n\n\n\n\\(\\eta\\)\n\n\\(\\theta\\)\n\n\\(\\vartheta\\)\n\n\n\n\\(\\lambda\\)\n\n\\(\\mu\\)\n\n\\(\\iota\\)\n\n\n\n\\(\\kappa\\)\n\n\\(\\Theta\\)\n\n\\(\\nu\\)\n\n\n\n\\(\\xi\\)\n\n\\(\\Xi\\)\n\n\\(\\pi\\)\n\n\n\n\\(\\Pi\\)\n\n\\(o\\)\no\n\\(O\\)\nO\n\n\n\\(\\rho\\)\n\n\\(\\varrho\\)\n\n\\(\\sigma\\)\n\n\n\n\\(\\Sigma\\)\n\n\\(\\tau\\)\n\n\\(\\upsilon\\)\n\n\n\n\\(\\phi\\)\n\n\\(\\varphi\\)\n\n\\(\\chi\\)\n\n\n\n\\(\\psi\\)\n\n\\(\\Psi\\)\n\n\\(\\omega\\)\n\n\n\n\\(\\Omega\\)\n\n\\(\\Phi\\)\n\n\\(\\Upsilon\\)",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LaTex 应用</span>"
+    ]
+  },
+  {
+    "objectID": "latex.html#字体字形设置",
+    "href": "latex.html#字体字形设置",
+    "title": "2  LaTex 应用",
+    "section": "2.3 字体字形设置",
+    "text": "2.3 字体字形设置\n\n\n\n符号\n命令\n说明\n\n\n\n\n\\(\\boxed{text}\\)\n\n斜体加边框\n\n\n\\(\\fbox{text}\\)\n\n文本加边框\n\n\n\\(\\mathbf{text}\\)\n\n字体加粗\n\n\n\\(\\boldsymbol{text}\\)\n\n斜体加粗\n\n\nA\\(\\large{A}\\)\n{A}\n加大字体\n\n\nA\\(\\small{A}\\)\n{A}\n缩小字体",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LaTex 应用</span>"
+    ]
+  },
+  {
+    "objectID": "latex.html#公式常用样式",
+    "href": "latex.html#公式常用样式",
+    "title": "2  LaTex 应用",
+    "section": "2.4 公式常用样式",
+    "text": "2.4 公式常用样式\n\n\n\n\n\n\n\n\n符号\n命令\n说明\n\n\n\n\n\\(a^{b}\\)\na^{b}\n上标\n\n\n\\(a_{b}\\)\na_{b}\n下标\n\n\n\\(a_{_b}\\)\na_{_b}\n下标\n\n\n\\(\\sqrt{ab}\\)\n\n平方根\n\n\n\\(\\sqrt[5]{ab}\\)\n\n开5次方\n\n\n\\(\\sideset{^1_2}{^3_4}\\bigotimes\\)\n\\sideset{^1_2}{^3_4}\\bigotimes\n左右都有上下标\n\n\n\\({}^{12}_{\\phantom{1}6}\\textrm{C}\\)\n{}^{12}_{\\phantom{1}6}\\textrm{C}\n左边有上下标\n\n\n\\(\\frac{a}{b}\\)\n\n分数\n\n\n\\(1+\\frac{a}{\\frac{b}{c}+1}\\)\n1+\\frac{a}{\\frac{b}{c}+1}\n分数，字体变小\n\n\n\\(1+\\cfrac{a}{\\cfrac{b}{c}+1}\\)\n1+\\cfrac{a}{\\cfrac{b}{c}+1}\n分数，字体不变\n\n\n\\(\\binom{a}{b^2}\\)\n\\binom{a}{b^2}\n组合数\n\n\n\\(\\dbinom{a}{b^2}\\)\n\\dbinom{a}{b^2}\n组合数\n\n\n\\(\\tbinom{a}{b^2}\\)\n\\tbinom{a}{b^2}\n组合数\n\n\n\\(\\stackrel{a}{b}\\)\n\\stackrel{a}{b}\n上面字符小，下面字符大\n\n\n\\(a\\atop b+c\\)\na\\atop b+c\n上下字符一样大\n\n\n\\(a\\choose b+c\\)\na\\choose b+c\n带括号的上下字符一样大\n\n\n\\(\\sum_{i=a}^{b} c_i\\)\n\\sum_{i=a}^{b} c_i\n求和\n\n\n\\(\\prod_{i=a}{b} c_i\\)\n\\prod_{i=a}{b} c_i\n求积\n\n\n\\(\\lim_{i=a}^{b} c_i\\)\n\\lim_{i=a}^{b} c_i\n求极限\n\n\n\\(\\int_{i=a}^{b} c_i\\)\n\\int_{i=a}^{b} c_i\n求积分\n\n\n\\(\\iint\\)\n\n积分形式\n\n\n\\(\\iiiint\\)\n\n积分形式",
+    "crumbs": [
+      "R Management",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>LaTex 应用</span>"
+    ]
   },
   {
     "objectID": "tidyverse.html",
     "href": "tidyverse.html",
     "title": "R 数据分析流",
     "section": "",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "crumbs": [
+      "R 数据分析流"
+    ]
   },
   {
     "objectID": "dplyr.html",
     "href": "dplyr.html",
-    "title": "2  数据处理与操作",
+    "title": "3  数据处理与操作",
     "section": "",
-    "text": "2.0.1 filter 筛选行\ndataset %&gt;%    \n  filter(sex == \"F\", age &lt;= 13) #,=and  \ndataset %&gt;%    \n  filter(age %in% c(13, 15)) #%in% 同 in  \ndataset %&gt;%    \n  filter(!(age &lt; 13 | age &gt; 16)) #表示13&lt;=age&lt;=16，|同或，！同非 \ndataset %&gt;%    \n  filter(!age %in% c(13, 15)) #表示不要13，15行\n\n\n2.0.2 filter 对多列进行筛选行\ndataset %&gt;%    \n  filter(if_all(4:6, ~ .x &gt; 75)) #表示筛选出第4-6列中所有列都&gt;75的行\ndataset %&gt;% \n  filter(if_any(where(is.character),is.na)) #从所有字符列中选择任意一列存在NA的行\n\n\n2.0.3 select 选择列删掉列\ndataset %&gt;% \n  select(sex, height, weight)\n\ndataset %&gt;% \n  select(name:age) #从name到age之间的列\n\ndataset %&gt;% \n  select(1:3) #选择第1到第3列\n\ndataset %&gt;% \n  select(-name, -age) #drop name age列\n\ndataset %&gt;% \n  select(last_col(2)) #选择倒数2列\n\ndataset %&gt;% \n  select(where(is.numeric)) #选择所有数值列\n\n\n2.0.4 pull 取单个变量作为一个向量\ndataset %&gt;% \n  head(n = 5) %&gt;% \n  pull(name)  #取dataset中name变量的前5行作为一个向量\n\n\n2.0.5 rename 修改列名\ndataset %&gt;% \n  rename(new_name = old_name)\n\n\n2.0.6 mutate 衍生新的列\ndataset %&gt;% \n  mutate(sex = if_else(sex == \"男\", \"M\", \"F\"))\n\ndataset %&gt;% \n  mutate(grade = case_when(math &gt;= 75 ~ \"high\",\n                           math &gt;= 60 ~ \"middle\",\n                           TRUE, ~ \"low\"))\n\n\n2.0.7 across 对多个列处理\ndataset %&gt;% \n  mutate(across(everything(), as.character)) #将所有列转换为字符\n\ndataset %&gt;% \n  mutate(across(contains(\"Length\")|contains(\"Width\"), ~ .x*10)) #将列名中含有Length或Width字符的列*10\n\n\n2.0.8 arrange 排序\ndataset %&gt;% \n  arrange(desc(col1), col2) #按照col1倒序排序，再按照col2顺序排序,注意缺失值NA排在最后面，不同于SAS\n\n\n2.0.9 distinct 去重\ndataset %&gt;% \n  distinct(col1, col2, .keep_all = TRUE) #.keep_all 是否要保留所有列\n\n\n2.0.10 count 计数\ndataset %&gt;% \n  count(col1) #计算col1各个组别的数量\n\n\n2.0.11 pivot_longer, pivot_wider 转置\ndataset %&gt;% \n  pivot_longer(cols = paste0(\"header\", 1:5),\n               names_to = \"header_label\",\n               values_to = \"header\")\n\ndataset %&gt;% \n  pivot_wider(names_from = col1,\n              values_from = c(col2, col3), #可以设置多个列进行转置\n              values_fill = 0)\n\n\n2.0.12 left_join, right_join, full_join横向合并数据集\ndataset %&gt;% \n  left_join(dataset1, dataset2, by = c(\"bycol1\", \"bycol2\"))\n\n\n2.0.13 rbind.fill 纵向合并数据集\ndataset %&gt;% \n  rbind.fill(dataset1, dataset)\n\n\n2.0.14 cumsum, lag 实现有条件的累加计数\ndataset %&gt;% \n  mutate(TiaoJian = x&lt;=lag(x) & y&lt;lag(y),\n         TiaoJianYN = ifelse(is.na(TiaoJian),FALSE,TiaoJian),\n         page = cumsum(TiaoJianYN + 0L))"
+    "text": "3.0.1 filter 筛选行\ndataset %&gt;%    \n  filter(sex == \"F\", age &lt;= 13) #,=and  \ndataset %&gt;%    \n  filter(age %in% c(13, 15)) #%in% 同 in  \ndataset %&gt;%    \n  filter(!(age &lt; 13 | age &gt; 16)) #表示13&lt;=age&lt;=16，|同或，！同非 \ndataset %&gt;%    \n  filter(!age %in% c(13, 15)) #表示不要13，15行\n\n\n3.0.2 filter 对多列进行筛选行\ndataset %&gt;%    \n  filter(if_all(4:6, ~ .x &gt; 75)) #表示筛选出第4-6列中所有列都&gt;75的行\ndataset %&gt;% \n  filter(if_any(where(is.character),is.na)) #从所有字符列中选择任意一列存在NA的行\n\n\n3.0.3 select 选择列删掉列\ndataset %&gt;% \n  select(sex, height, weight)\n\ndataset %&gt;% \n  select(name:age) #从name到age之间的列\n\ndataset %&gt;% \n  select(1:3) #选择第1到第3列\n\ndataset %&gt;% \n  select(-name, -age) #drop name age列\n\ndataset %&gt;% \n  select(last_col(2)) #选择倒数2列\n\ndataset %&gt;% \n  select(where(is.numeric)) #选择所有数值列\n\n\n3.0.4 pull 取单个变量作为一个向量\ndataset %&gt;% \n  head(n = 5) %&gt;% \n  pull(name)  #取dataset中name变量的前5行作为一个向量\n\n\n3.0.5 rename 修改列名\ndataset %&gt;% \n  rename(new_name = old_name)\n\n\n3.0.6 mutate 衍生新的列\ndataset %&gt;% \n  mutate(sex = if_else(sex == \"男\", \"M\", \"F\"))\n\ndataset %&gt;% \n  mutate(grade = case_when(math &gt;= 75 ~ \"high\",\n                           math &gt;= 60 ~ \"middle\",\n                           TRUE, ~ \"low\"))\n\n\n3.0.7 across 对多个列处理\ndataset %&gt;% \n  mutate(across(everything(), as.character)) #将所有列转换为字符\n\ndataset %&gt;% \n  mutate(across(contains(\"Length\")|contains(\"Width\"), ~ .x*10)) #将列名中含有Length或Width字符的列*10\n\n\n3.0.8 arrange 排序\ndataset %&gt;% \n  arrange(desc(col1), col2) #按照col1倒序排序，再按照col2顺序排序,注意缺失值NA排在最后面，不同于SAS\n\n\n3.0.9 distinct 去重\ndataset %&gt;% \n  distinct(col1, col2, .keep_all = TRUE) #.keep_all 是否要保留所有列\n\n\n3.0.10 count 计数\ndataset %&gt;% \n  count(col1) #计算col1各个组别的数量\n\n\n3.0.11 pivot_longer, pivot_wider 转置\ndataset %&gt;% \n  pivot_longer(cols = paste0(\"header\", 1:5),\n               names_to = \"header_label\",\n               values_to = \"header\")\n\ndataset %&gt;% \n  pivot_wider(names_from = col1,\n              values_from = c(col2, col3), #可以设置多个列进行转置\n              values_fill = 0)\n\n\n3.0.12 left_join, right_join, full_join横向合并数据集\ndataset %&gt;% \n  left_join(dataset1, dataset2, by = c(\"bycol1\", \"bycol2\"))\n\n\n3.0.13 rbind.fill 纵向合并数据集\ndataset %&gt;% \n  rbind.fill(dataset1, dataset)\n\n\n3.0.14 cumsum, lag 实现有条件的累加计数\ndataset %&gt;% \n  mutate(TiaoJian = x&lt;=lag(x) & y&lt;lag(y),\n         TiaoJianYN = ifelse(is.na(TiaoJian),FALSE,TiaoJian),\n         page = cumsum(TiaoJianYN + 0L))",
+    "crumbs": [
+      "R 数据分析流",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>数据处理与操作</span>"
+    ]
   },
   {
     "objectID": "stringr.html",
     "href": "stringr.html",
-    "title": "3  字符处理",
+    "title": "4  字符处理",
     "section": "",
-    "text": "3.0.1 paste, paste0 连接字符\ndataset %&gt;% \n  mutate(Ttext = paste0(col_text, collapse = \"@\")) #paste与paste0主要区别是paste0连接后的字符串之间不含有空格\n\n\n3.0.2 strsplit 切割字符串\nunlist(strsplit(\"a.b.c\", \"[.]\"))\n\n\n3.0.3 str_split_fixed 切割字符串\ndataset %&gt;% \n  mutate(domain = str_split_fixed(annotation, \"\\\\.\", n=3)[,1],\n         assigned = str_split_fixed(annotation, \"\\\\.\", n=3)[,2]) #将annotation列以.为分隔符切割成3部分，并取第一部分作为变量domain\n\n\n3.0.4 str_extract_all 提取字符串\ndataset %&gt;% \n  mutate(col_order = as.numeric(str_extract_all(col_orderc, \"[0-9]\")))\n\n\n3.0.5 str_replace_all 压缩字符串\ndataset %&gt;% \n  mutate(llength = nchar(str_replace_all(text, \" \", \"\"), type = \"bytes\") - nchar(str_replace_all(text, \" \", \"\"))) #计算变量text去掉所有空格后（包括内部空格）字节长度与字符长度的差值"
+    "text": "4.0.1 paste, paste0 连接字符\ndataset %&gt;% \n  mutate(Ttext = paste0(col_text, collapse = \"@\")) #paste与paste0主要区别是paste0连接后的字符串之间不含有空格\n\n\n4.0.2 strsplit 切割字符串\nunlist(strsplit(\"a.b.c\", \"[.]\"))\n\n\n4.0.3 str_split_fixed 切割字符串\ndataset %&gt;% \n  mutate(domain = str_split_fixed(annotation, \"\\\\.\", n=3)[,1],\n         assigned = str_split_fixed(annotation, \"\\\\.\", n=3)[,2]) #将annotation列以.为分隔符切割成3部分，并取第一部分作为变量domain\n\n\n4.0.4 str_extract_all 提取字符串\ndataset %&gt;% \n  mutate(col_order = as.numeric(str_extract_all(col_orderc, \"[0-9]\")))\n\n\n4.0.5 str_replace_all 压缩字符串\ndataset %&gt;% \n  mutate(llength = nchar(str_replace_all(text, \" \", \"\"), type = \"bytes\") - nchar(str_replace_all(text, \" \", \"\"))) #计算变量text去掉所有空格后（包括内部空格）字节长度与字符长度的差值",
+    "crumbs": [
+      "R 数据分析流",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>字符处理</span>"
+    ]
   },
   {
     "objectID": "ggplot2.html",
     "href": "ggplot2.html",
-    "title": "4  数据可视化",
+    "title": "5  数据可视化",
     "section": "",
-    "text": "4.0.1 ggplot2 语法\nggplot2的核心理念是将数据和绘图分离\n\n\n\ndata\n数据\n\n\naes\n数据中的变量和绘图属性之间的映射关系\n\n\ngeom\n至少一个几何图层\n\n\n\n\n\n4.0.2 geom图层\n\n4.0.2.1 散点图\ngeom_point\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nalpha\n\n\ncolour\n\n\nfill\n\n\ngroup\n\n\nshape\n\n\nsize\n\n\nstroke\n\n\n\ngeom_path: 根据数据中观测的顺序连接坐标点\ngeom_step: 阶梯图\n\n\n\naes\nargument\n\n\n\n\n\nx\nlineend\nround; square; butt\n\n\ny\nlinejoin\nround; bevel; mitre\n\n\nalpha\nlinemitre\n\n\n\ncolor\narrow\n\n\n\ngroup\n\n\n\n\nlinetype\n\n\n\n\nlinewidth\n\n\n\n\n\n\n\n4.0.2.2 参考线\ngeom_adline: 斜线\ngeom_hline: 水平线\ngeom_vline: 垂直线\n\n\n\naes\ngeom\n\n\n\n\n\nalpha\ngeom_abline\nslope; intercept\n\n\ncolor\ngeom_vline\nxintercept\n\n\nlinetype\ngeom_hline\nyintercept\n\n\nlinewidth\n\n\n\n\n\n\n\n4.0.2.3 条形图\ngeom_col\n\n\n\naes\nargument\n\n\n\n\n\nx\njust\ndefault: 0.5\n\n\ny\n\n\n\n\nalpha\n\n\n\n\ncolor\n\n\n\n\nfill\n\n\n\n\ngroup\n\n\n\n\nlinetype\n\n\n\n\nlinewidth\n\n\n\n\n\n\n\n4.0.2.4 点阵图\ngeom_dotplot\n\n\n\naes\nargument\n\n\n\n\n\nx\nmethod\ndotdensity; histodot\n\n\ny\nbinaxis\nx; y\n\n\nalpha\nbinwidth\n\n\n\ncolor\n\n\n\n\nfill\n\n\n\n\ngroup\n\n\n\n\nlinetype\n\n\n\n\nstroke\n\n\n\n\nweight\n\n\n\n\n\n\n\n4.0.2.5 垂直区间图（误差条）\ngeom_crossbar / geom_errorbar / geom_linerange / geom_pointrange\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nxmin\n\n\nymin\n\n\nxmax\n\n\nymax\n\n\nalpha\n\n\ncolor\n\n\ngroup\n\n\nlinetype\n\n\nlinewidth\n\n\n\nNote: geom_pointrange 多一个aes(size).\n\n\n4.0.2.6 线段（箭头）\ngeom_segment: (x,y) 到 (xend,yend)的直线\ngeom_curve: 曲线\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nxend\n\n\nyend\n\n\nalpha\n\n\ncolour\n\n\ngroup\n\n\nlinetype\n\n\nlinewidth\n\n\n\n\n\n4.0.2.7 区间图\ngeom_ribbon: 绘制从ymin–&gt;ymax一个区域图\ngeom_area: ymin =0 时的特殊情况\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nxmin\n\n\nymin\n\n\nxmax\n\n\nymax\n\n\nalpha\n\n\ncolor\n\n\nfill\n\n\ngroup\n\n\nlinetype\n\n\nlinewidth\n\n\n\n\n\n4.0.2.8 文本标签\ngeom_text: 只有文本\ngeom_label: 文本背后还有一个背景文本框（矩形）\n\n\n\naes\n\n\n\n\n\nx\n\n\n\ny\n\n\n\nlabel\n\n\n\nalpha\n\n\n\nangle\n\n\n\ncolor\n\n\n\nfamily\n\n\n\nfontface\n\n\n\ngroup\n\n\n\nhjust\n\n\n\nlineheight\n\n\n\nsize\n\n\n\nvjust\n\n\n\nfill\nonly for geom_label\n\n\n\nNote: check_overlap 仅对geom_text有效。\n\n\n\n4.0.3 aes-specs映射属性\n\n4.0.3.1 linetype\n\n\n\nlinetype (numeric)\nlinetypevalue (character)\n\n\n\n\n0\nblank\n\n\n1\nsolid\n\n\n2\ndashed\n\n\n3\ndotted\n\n\n4\ndotdash\n\n\n5\nlongdash\n\n\n6\ntwodash\n\n\n\n11\n\n\n\n18\n\n\n\n1f\n\n\n\n81\n\n\n\n88\n\n\n\n8f\n\n\n\nf1\n\n\n\nf8\n\n\n\nff\n\n\n\n\n\n4.0.3.2 shape形状\n\n\n\n4.0.3.3 stoke\n\njustification对齐方式\n\n\n\njust\ncomments\n\n\n\n\nhjust\n水平对齐\n\n\nvjust\n纵向对齐\n\n\nhjust = 0\n左对齐；left\n\n\nhjust = 0.5\n居中；middle\n\n\nhjust = 1\n右对齐；right\n\n\nvjust = 0\n底部；bottom\n\n\nvjust = 0.5\n中间；center\n\n\nvjust = 1\n顶部；top\n\n\n\n\n\n\n4.0.4 theme主题\nA complete guide to theme (ggplot2tor.com)"
+    "text": "5.1 ggplot2 语法\nggplot2的核心理念是将数据和绘图分离",
+    "crumbs": [
+      "R 数据分析流",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据可视化</span>"
+    ]
+  },
+  {
+    "objectID": "ggplot2.html#ggplot2-语法",
+    "href": "ggplot2.html#ggplot2-语法",
+    "title": "5  数据可视化",
+    "section": "",
+    "text": "data\n数据\n\n\naes\n数据中的变量和绘图属性之间的映射关系\n\n\ngeom\n至少一个几何图层",
+    "crumbs": [
+      "R 数据分析流",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据可视化</span>"
+    ]
+  },
+  {
+    "objectID": "ggplot2.html#geom图层",
+    "href": "ggplot2.html#geom图层",
+    "title": "5  数据可视化",
+    "section": "5.2 geom图层",
+    "text": "5.2 geom图层\n\n5.2.1 散点图\ngeom_point\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nalpha\n\n\ncolour\n\n\nfill\n\n\ngroup\n\n\nshape\n\n\nsize\n\n\nstroke\n\n\n\n\n\n5.2.2 线型图\ngeom_line: 根据X轴顺序连接坐标点\ngeom_path: 根据数据中观测的顺序连接坐标点\ngeom_step: 阶梯图\n\n\n\naes\nargument\n\n\n\n\n\nx\nlineend\nround; square; butt\n\n\ny\nlinejoin\nround; bevel; mitre\n\n\nalpha\nlinemitre\n\n\n\ncolor\narrow\n\n\n\ngroup\n\n\n\n\nlinetype\n\n\n\n\nlinewidth\n\n\n\n\n\n\n\n5.2.3 参考线\ngeom_adline: 斜线\ngeom_hline: 水平线\ngeom_vline: 垂直线\n\n\n\naes\ngeom\n\n\n\n\n\nalpha\ngeom_abline\nslope; intercept\n\n\ncolor\ngeom_vline\nxintercept\n\n\nlinetype\ngeom_hline\nyintercept\n\n\nlinewidth\n\n\n\n\n\n\n\n5.2.4 条形图\ngeom_col\n\n\n\naes\nargument\n\n\n\n\n\nx\njust\ndefault: 0.5\n\n\ny\n\n\n\n\nalpha\n\n\n\n\ncolor\n\n\n\n\nfill\n\n\n\n\ngroup\n\n\n\n\nlinetype\n\n\n\n\nlinewidth\n\n\n\n\n\n\n\n5.2.5 点阵图\ngeom_dotplot\n\n\n\naes\nargument\n\n\n\n\n\nx\nmethod\ndotdensity; histodot\n\n\ny\nbinaxis\nx; y\n\n\nalpha\nbinwidth\n\n\n\ncolor\n\n\n\n\nfill\n\n\n\n\ngroup\n\n\n\n\nlinetype\n\n\n\n\nstroke\n\n\n\n\nweight\n\n\n\n\n\n\n\n5.2.6 垂直区间图（误差条）\ngeom_crossbar / geom_errorbar / geom_linerange / geom_pointrange\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nxmin\n\n\nymin\n\n\nxmax\n\n\nymax\n\n\nalpha\n\n\ncolor\n\n\ngroup\n\n\nlinetype\n\n\nlinewidth\n\n\n\nNote: geom_pointrange 多一个aes(size).\n\n\n5.2.7 线段（箭头）\ngeom_segment: (x,y) 到 (xend,yend)的直线\ngeom_curve: 曲线\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nxend\n\n\nyend\n\n\nalpha\n\n\ncolour\n\n\ngroup\n\n\nlinetype\n\n\nlinewidth\n\n\n\n\n\n5.2.8 区间图\ngeom_ribbon: 绘制从ymin–&gt;ymax一个区域图\ngeom_area: ymin =0 时的特殊情况\n\n\n\naes\n\n\n\n\nx\n\n\ny\n\n\nxmin\n\n\nymin\n\n\nxmax\n\n\nymax\n\n\nalpha\n\n\ncolor\n\n\nfill\n\n\ngroup\n\n\nlinetype\n\n\nlinewidth\n\n\n\n\n\n5.2.9 文本标签\ngeom_text: 只有文本\ngeom_label: 文本背后还有一个背景文本框（矩形）\n\n\n\naes\n\n\n\n\n\nx\n\n\n\ny\n\n\n\nlabel\n\n\n\nalpha\n\n\n\nangle\n\n\n\ncolor\n\n\n\nfamily\n\n\n\nfontface\n\n\n\ngroup\n\n\n\nhjust\n\n\n\nlineheight\n\n\n\nsize\n\n\n\nvjust\n\n\n\nfill\nonly for geom_label\n\n\n\nNote: check_overlap 仅对geom_text有效。",
+    "crumbs": [
+      "R 数据分析流",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据可视化</span>"
+    ]
+  },
+  {
+    "objectID": "ggplot2.html#aes-specs映射属性",
+    "href": "ggplot2.html#aes-specs映射属性",
+    "title": "5  数据可视化",
+    "section": "5.3 aes-specs映射属性",
+    "text": "5.3 aes-specs映射属性\n\n5.3.1 linetype\n\n\n\nlinetype (numeric)\nlinetypevalue (character)\n\n\n\n\n0\nblank\n\n\n1\nsolid\n\n\n2\ndashed\n\n\n3\ndotted\n\n\n4\ndotdash\n\n\n5\nlongdash\n\n\n6\ntwodash\n\n\n\n11\n\n\n\n18\n\n\n\n1f\n\n\n\n81\n\n\n\n88\n\n\n\n8f\n\n\n\nf1\n\n\n\nf8\n\n\n\nff\n\n\n\n\n\n5.3.2 shape形状\n\n\n\n5.3.3 stoke\n\njustification对齐方式\n\n\n\njust\ncomments\n\n\n\n\nhjust\n水平对齐\n\n\nvjust\n纵向对齐\n\n\nhjust = 0\n左对齐；left\n\n\nhjust = 0.5\n居中；middle\n\n\nhjust = 1\n右对齐；right\n\n\nvjust = 0\n底部；bottom\n\n\nvjust = 0.5\n中间；center\n\n\nvjust = 1\n顶部；top",
+    "crumbs": [
+      "R 数据分析流",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据可视化</span>"
+    ]
+  },
+  {
+    "objectID": "ggplot2.html#theme主题",
+    "href": "ggplot2.html#theme主题",
+    "title": "5  数据可视化",
+    "section": "5.4 theme主题",
+    "text": "5.4 theme主题\nA complete guide to theme (ggplot2tor.com)",
+    "crumbs": [
+      "R 数据分析流",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据可视化</span>"
+    ]
   }
 ]

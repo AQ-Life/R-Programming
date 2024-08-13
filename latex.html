@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Programming - 5&nbsp; 数据可视化</title>
+<title>R Programming - 2&nbsp; LaTex 应用</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./stringr.html" rel="prev">
+<link href="./tidyverse.html" rel="next">
+<link href="./rmanage.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -80,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">R 数据分析流</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据可视化</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">R Management</a></li><li class="breadcrumb-item"><a href="./latex.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">LaTex 应用</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -128,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./latex.html" class="sidebar-item-text sidebar-link">
+  <a href="./latex.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">LaTex 应用</span></span></a>
   </div>
 </li>
@@ -157,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
   </div>
 </li>
@@ -173,35 +203,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ggplot2-语法" id="toc-ggplot2-语法" class="nav-link active" data-scroll-target="#ggplot2-语法"><span class="header-section-number">5.1</span> ggplot2 语法</a></li>
-  <li><a href="#geom图层" id="toc-geom图层" class="nav-link" data-scroll-target="#geom图层"><span class="header-section-number">5.2</span> geom图层</a>
-  <ul class="collapse">
-  <li><a href="#散点图" id="toc-散点图" class="nav-link" data-scroll-target="#散点图"><span class="header-section-number">5.2.1</span> 散点图</a></li>
-  <li><a href="#线型图" id="toc-线型图" class="nav-link" data-scroll-target="#线型图"><span class="header-section-number">5.2.2</span> 线型图</a></li>
-  <li><a href="#参考线" id="toc-参考线" class="nav-link" data-scroll-target="#参考线"><span class="header-section-number">5.2.3</span> 参考线</a></li>
-  <li><a href="#条形图" id="toc-条形图" class="nav-link" data-scroll-target="#条形图"><span class="header-section-number">5.2.4</span> 条形图</a></li>
-  <li><a href="#点阵图" id="toc-点阵图" class="nav-link" data-scroll-target="#点阵图"><span class="header-section-number">5.2.5</span> 点阵图</a></li>
-  <li><a href="#垂直区间图误差条" id="toc-垂直区间图误差条" class="nav-link" data-scroll-target="#垂直区间图误差条"><span class="header-section-number">5.2.6</span> 垂直区间图（误差条）</a></li>
-  <li><a href="#线段箭头" id="toc-线段箭头" class="nav-link" data-scroll-target="#线段箭头"><span class="header-section-number">5.2.7</span> 线段（箭头）</a></li>
-  <li><a href="#区间图" id="toc-区间图" class="nav-link" data-scroll-target="#区间图"><span class="header-section-number">5.2.8</span> 区间图</a></li>
-  <li><a href="#文本标签" id="toc-文本标签" class="nav-link" data-scroll-target="#文本标签"><span class="header-section-number">5.2.9</span> 文本标签</a></li>
-  </ul></li>
-  <li><a href="#aes-specs映射属性" id="toc-aes-specs映射属性" class="nav-link" data-scroll-target="#aes-specs映射属性"><span class="header-section-number">5.3</span> aes-specs映射属性</a>
-  <ul class="collapse">
-  <li><a href="#linetype" id="toc-linetype" class="nav-link" data-scroll-target="#linetype"><span class="header-section-number">5.3.1</span> linetype</a></li>
-  <li><a href="#shape形状" id="toc-shape形状" class="nav-link" data-scroll-target="#shape形状"><span class="header-section-number">5.3.2</span> shape形状</a></li>
-  <li><a href="#stoke" id="toc-stoke" class="nav-link" data-scroll-target="#stoke"><span class="header-section-number">5.3.3</span> stoke</a></li>
-  </ul></li>
-  <li><a href="#theme主题" id="toc-theme主题" class="nav-link" data-scroll-target="#theme主题"><span class="header-section-number">5.4</span> theme主题</a></li>
+  <li><a href="#特殊字符" id="toc-特殊字符" class="nav-link active" data-scroll-target="#特殊字符"><span class="header-section-number">2.1</span> 特殊字符</a></li>
+  <li><a href="#希腊字母" id="toc-希腊字母" class="nav-link" data-scroll-target="#希腊字母"><span class="header-section-number">2.2</span> 希腊字母</a></li>
+  <li><a href="#字体字形设置" id="toc-字体字形设置" class="nav-link" data-scroll-target="#字体字形设置"><span class="header-section-number">2.3</span> 字体字形设置</a></li>
+  <li><a href="#公式常用样式" id="toc-公式常用样式" class="nav-link" data-scroll-target="#公式常用样式"><span class="header-section-number">2.4</span> 公式常用样式</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">R 数据分析流</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据可视化</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">R Management</a></li><li class="breadcrumb-item"><a href="./latex.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">LaTex 应用</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据可视化</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">LaTex 应用</span></h1>
 </div>
 
 
@@ -218,617 +232,372 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="ggplot2-语法" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="ggplot2-语法"><span class="header-section-number">5.1</span> ggplot2 语法</h2>
-<p>ggplot2的核心理念是将数据和绘图分离</p>
+<section id="特殊字符" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="特殊字符"><span class="header-section-number">2.1</span> 特殊字符</h2>
 <table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 18%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
 <tbody>
 <tr class="odd">
-<td>data</td>
-<td>数据</td>
+<td><strong>符号</strong></td>
+<td><strong>命令</strong></td>
+<td><strong>符号</strong></td>
+<td><strong>命令</strong></td>
+<td><strong>符号</strong></td>
+<td><strong>命令</strong></td>
 </tr>
 <tr class="even">
-<td>aes</td>
-<td>数据中的变量和绘图属性之间的映射关系</td>
+<td><span class="math inline">\(\$\)</span></td>
+<td>\$</td>
+<td><span class="math inline">\(\%\)</span></td>
+<td>\%</td>
+<td><span class="math inline">\(\^{}\)</span></td>
+<td>\^{}</td>
 </tr>
 <tr class="odd">
-<td>geom</td>
-<td>至少一个几何图层</td>
+<td><span class="math inline">\(\_\)</span></td>
+<td>\_</td>
+<td><span class="math inline">\(\{\)</span></td>
+<td>\{</td>
+<td><span class="math inline">\(\#\)</span></td>
+<td>\#</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\&amp;\)</span></td>
+<td>\&amp;</td>
+<td><span class="math inline">\(\}\)</span></td>
+<td>\}</td>
+<td><span class="math inline">\(\~{}\)</span></td>
+<td>\~{}</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\backslash\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="geom图层" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="geom图层"><span class="header-section-number">5.2</span> geom图层</h2>
-<section id="散点图" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="散点图"><span class="header-section-number">5.2.1</span> 散点图</h3>
-<p>geom_point</p>
+<section id="希腊字母" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="希腊字母"><span class="header-section-number">2.2</span> 希腊字母</h2>
 <table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 18%">
+<col style="width: 17%">
+<col style="width: 14%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>aes</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>x</td>
+<td><span class="math inline">\(\alpha\)</span></td>
+<td></td>
+<td><span class="math inline">\(\beta\)</span></td>
+<td></td>
+<td><span class="math inline">\(\gamma\)</span></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>y</td>
+<td><span class="math inline">\(\Gamma\)</span></td>
+<td></td>
+<td><span class="math inline">\(\delta\)</span></td>
+<td></td>
+<td><span class="math inline">\(\Delta\)</span></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>alpha</td>
+<td><span class="math inline">\(\epsilon\)</span></td>
+<td></td>
+<td><span class="math inline">\(\varepsilon\)</span></td>
+<td></td>
+<td><span class="math inline">\(\zeta\)</span></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>colour</td>
+<td><span class="math inline">\(\eta\)</span></td>
+<td></td>
+<td><span class="math inline">\(\theta\)</span></td>
+<td></td>
+<td><span class="math inline">\(\vartheta\)</span></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>fill</td>
+<td><span class="math inline">\(\lambda\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td></td>
+<td><span class="math inline">\(\iota\)</span></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>group</td>
+<td><span class="math inline">\(\kappa\)</span></td>
+<td></td>
+<td><span class="math inline">\(\Theta\)</span></td>
+<td></td>
+<td><span class="math inline">\(\nu\)</span></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>shape</td>
+<td><span class="math inline">\(\xi\)</span></td>
+<td></td>
+<td><span class="math inline">\(\Xi\)</span></td>
+<td></td>
+<td><span class="math inline">\(\pi\)</span></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>size</td>
+<td><span class="math inline">\(\Pi\)</span></td>
+<td></td>
+<td><span class="math inline">\(o\)</span></td>
+<td>o</td>
+<td><span class="math inline">\(O\)</span></td>
+<td>O</td>
 </tr>
 <tr class="odd">
-<td>stroke</td>
+<td><span class="math inline">\(\rho\)</span></td>
+<td></td>
+<td><span class="math inline">\(\varrho\)</span></td>
+<td></td>
+<td><span class="math inline">\(\sigma\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Sigma\)</span></td>
+<td></td>
+<td><span class="math inline">\(\tau\)</span></td>
+<td></td>
+<td><span class="math inline">\(\upsilon\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\phi\)</span></td>
+<td></td>
+<td><span class="math inline">\(\varphi\)</span></td>
+<td></td>
+<td><span class="math inline">\(\chi\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\psi\)</span></td>
+<td></td>
+<td><span class="math inline">\(\Psi\)</span></td>
+<td></td>
+<td><span class="math inline">\(\omega\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Omega\)</span></td>
+<td></td>
+<td><span class="math inline">\(\Phi\)</span></td>
+<td></td>
+<td><span class="math inline">\(\Upsilon\)</span></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="线型图" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="线型图"><span class="header-section-number">5.2.2</span> 线型图</h3>
-<p>geom_line: 根据X轴顺序连接坐标点</p>
-<p>geom_path: 根据数据中观测的顺序连接坐标点</p>
-<p>geom_step: 阶梯图</p>
+<section id="字体字形设置" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="字体字形设置"><span class="header-section-number">2.3</span> 字体字形设置</h2>
 <table class="table">
 <thead>
 <tr class="header">
-<th>aes</th>
-<th>argument</th>
-<th></th>
+<th>符号</th>
+<th>命令</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>x</td>
-<td>lineend</td>
-<td>round; square; butt</td>
+<td><span class="math inline">\(\boxed{text}\)</span></td>
+<td></td>
+<td>斜体加边框</td>
 </tr>
 <tr class="even">
-<td>y</td>
-<td>linejoin</td>
-<td>round; bevel; mitre</td>
+<td><span class="math inline">\(\fbox{text}\)</span></td>
+<td></td>
+<td>文本加边框</td>
 </tr>
 <tr class="odd">
-<td>alpha</td>
-<td>linemitre</td>
+<td><span class="math inline">\(\mathbf{text}\)</span></td>
 <td></td>
+<td>字体加粗</td>
 </tr>
 <tr class="even">
-<td>color</td>
-<td>arrow</td>
+<td><span class="math inline">\(\boldsymbol{text}\)</span></td>
 <td></td>
+<td>斜体加粗</td>
 </tr>
 <tr class="odd">
-<td>group</td>
-<td></td>
-<td></td>
+<td>A<span class="math inline">\(\large{A}\)</span></td>
+<td>{A}</td>
+<td>加大字体</td>
 </tr>
 <tr class="even">
-<td>linetype</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>linewidth</td>
-<td></td>
-<td></td>
+<td>A<span class="math inline">\(\small{A}\)</span></td>
+<td>{A}</td>
+<td>缩小字体</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="参考线" class="level3" data-number="5.2.3">
-<h3 data-number="5.2.3" class="anchored" data-anchor-id="参考线"><span class="header-section-number">5.2.3</span> 参考线</h3>
-<p>geom_adline: 斜线</p>
-<p>geom_hline: 水平线</p>
-<p>geom_vline: 垂直线</p>
+<section id="公式常用样式" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="公式常用样式"><span class="header-section-number">2.4</span> 公式常用样式</h2>
 <table class="table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 38%">
+<col style="width: 24%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>aes</th>
-<th>geom</th>
-<th></th>
+<th>符号</th>
+<th>命令</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>alpha</td>
-<td>geom_abline</td>
-<td>slope; intercept</td>
+<td><span class="math inline">\(a^{b}\)</span></td>
+<td>a^{b}</td>
+<td>上标</td>
 </tr>
 <tr class="even">
-<td>color</td>
-<td>geom_vline</td>
-<td>xintercept</td>
+<td><span class="math inline">\(a_{b}\)</span></td>
+<td>a_{b}</td>
+<td>下标</td>
 </tr>
 <tr class="odd">
-<td>linetype</td>
-<td>geom_hline</td>
-<td>yintercept</td>
+<td><span class="math inline">\(a_{_b}\)</span></td>
+<td>a_{_b}</td>
+<td>下标</td>
 </tr>
 <tr class="even">
-<td>linewidth</td>
+<td><span class="math inline">\(\sqrt{ab}\)</span></td>
+<td></td>
+<td>平方根</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sqrt[5]{ab}\)</span></td>
+<td></td>
+<td>开5次方</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sideset{^1_2}{^3_4}\bigotimes\)</span></td>
+<td>\sideset{^1_2}{^3_4}\bigotimes</td>
+<td>左右都有上下标</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\({}^{12}_{\phantom{1}6}\textrm{C}\)</span></td>
+<td>{}^{12}_{\phantom{1}6}\textrm{C}</td>
+<td>左边有上下标</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{a}{b}\)</span></td>
+<td></td>
+<td>分数</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1+\frac{a}{\frac{b}{c}+1}\)</span></td>
+<td>1+\frac{a}{\frac{b}{c}+1}</td>
+<td>分数，字体变小</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1+\cfrac{a}{\cfrac{b}{c}+1}\)</span></td>
+<td>1+\cfrac{a}{\cfrac{b}{c}+1}</td>
+<td>分数，字体不变</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\binom{a}{b^2}\)</span></td>
+<td>\binom{a}{b^2}</td>
+<td>组合数</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\dbinom{a}{b^2}\)</span></td>
+<td>\dbinom{a}{b^2}</td>
+<td>组合数</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tbinom{a}{b^2}\)</span></td>
+<td>\tbinom{a}{b^2}</td>
+<td>组合数</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\stackrel{a}{b}\)</span></td>
+<td>\stackrel{a}{b}</td>
+<td>上面字符小，下面字符大</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(a\atop b+c\)</span></td>
+<td>a\atop b+c</td>
+<td>上下字符一样大</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(a\choose b+c\)</span></td>
+<td>a\choose b+c</td>
+<td>带括号的上下字符一样大</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sum_{i=a}^{b} c_i\)</span></td>
+<td>\sum_{i=a}^{b} c_i</td>
+<td>求和</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\prod_{i=a}{b} c_i\)</span></td>
+<td>\prod_{i=a}{b} c_i</td>
+<td>求积</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\lim_{i=a}^{b} c_i\)</span></td>
+<td>\lim_{i=a}^{b} c_i</td>
+<td>求极限</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\int_{i=a}^{b} c_i\)</span></td>
+<td>\int_{i=a}^{b} c_i</td>
+<td>求积分</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\iint\)</span></td>
+<td></td>
+<td>积分形式</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\iiiint\)</span></td>
+<td></td>
+<td>积分形式</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="条形图" class="level3" data-number="5.2.4">
-<h3 data-number="5.2.4" class="anchored" data-anchor-id="条形图"><span class="header-section-number">5.2.4</span> 条形图</h3>
-<p>geom_col</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>aes</th>
-<th>argument</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>x</td>
-<td>just</td>
-<td>default: 0.5</td>
-</tr>
-<tr class="even">
-<td>y</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>alpha</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>color</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>fill</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>group</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>linetype</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>linewidth</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="点阵图" class="level3" data-number="5.2.5">
-<h3 data-number="5.2.5" class="anchored" data-anchor-id="点阵图"><span class="header-section-number">5.2.5</span> 点阵图</h3>
-<p>geom_dotplot</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>aes</th>
-<th>argument</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>x</td>
-<td>method</td>
-<td>dotdensity; histodot</td>
-</tr>
-<tr class="even">
-<td>y</td>
-<td>binaxis</td>
-<td>x; y</td>
-</tr>
-<tr class="odd">
-<td>alpha</td>
-<td>binwidth</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>color</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>fill</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>group</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>linetype</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>stroke</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>weight</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="垂直区间图误差条" class="level3" data-number="5.2.6">
-<h3 data-number="5.2.6" class="anchored" data-anchor-id="垂直区间图误差条"><span class="header-section-number">5.2.6</span> 垂直区间图（误差条）</h3>
-<p>geom_crossbar / geom_errorbar / geom_linerange / geom_pointrange</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>aes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>x</td>
-</tr>
-<tr class="even">
-<td>y</td>
-</tr>
-<tr class="odd">
-<td>xmin</td>
-</tr>
-<tr class="even">
-<td>ymin</td>
-</tr>
-<tr class="odd">
-<td>xmax</td>
-</tr>
-<tr class="even">
-<td>ymax</td>
-</tr>
-<tr class="odd">
-<td>alpha</td>
-</tr>
-<tr class="even">
-<td>color</td>
-</tr>
-<tr class="odd">
-<td>group</td>
-</tr>
-<tr class="even">
-<td>linetype</td>
-</tr>
-<tr class="odd">
-<td>linewidth</td>
-</tr>
-</tbody>
-</table>
-<p>Note: geom_pointrange 多一个aes(size).</p>
-</section>
-<section id="线段箭头" class="level3" data-number="5.2.7">
-<h3 data-number="5.2.7" class="anchored" data-anchor-id="线段箭头"><span class="header-section-number">5.2.7</span> 线段（箭头）</h3>
-<p>geom_segment: (x,y) 到 (xend,yend)的直线</p>
-<p>geom_curve: 曲线</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>aes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>x</td>
-</tr>
-<tr class="even">
-<td>y</td>
-</tr>
-<tr class="odd">
-<td>xend</td>
-</tr>
-<tr class="even">
-<td>yend</td>
-</tr>
-<tr class="odd">
-<td>alpha</td>
-</tr>
-<tr class="even">
-<td>colour</td>
-</tr>
-<tr class="odd">
-<td>group</td>
-</tr>
-<tr class="even">
-<td>linetype</td>
-</tr>
-<tr class="odd">
-<td>linewidth</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="区间图" class="level3" data-number="5.2.8">
-<h3 data-number="5.2.8" class="anchored" data-anchor-id="区间图"><span class="header-section-number">5.2.8</span> 区间图</h3>
-<p>geom_ribbon: 绘制从ymin–&gt;ymax一个区域图</p>
-<p>geom_area: ymin =0 时的特殊情况</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>aes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>x</td>
-</tr>
-<tr class="even">
-<td>y</td>
-</tr>
-<tr class="odd">
-<td>xmin</td>
-</tr>
-<tr class="even">
-<td>ymin</td>
-</tr>
-<tr class="odd">
-<td>xmax</td>
-</tr>
-<tr class="even">
-<td>ymax</td>
-</tr>
-<tr class="odd">
-<td>alpha</td>
-</tr>
-<tr class="even">
-<td>color</td>
-</tr>
-<tr class="odd">
-<td>fill</td>
-</tr>
-<tr class="even">
-<td>group</td>
-</tr>
-<tr class="odd">
-<td>linetype</td>
-</tr>
-<tr class="even">
-<td>linewidth</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="文本标签" class="level3" data-number="5.2.9">
-<h3 data-number="5.2.9" class="anchored" data-anchor-id="文本标签"><span class="header-section-number">5.2.9</span> 文本标签</h3>
-<p>geom_text: 只有文本</p>
-<p>geom_label: 文本背后还有一个背景文本框（矩形）</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>aes</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>x</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>y</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>label</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>alpha</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>angle</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>color</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>family</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>fontface</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>group</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>hjust</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>lineheight</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>size</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>vjust</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>fill</td>
-<td>only for geom_label</td>
-</tr>
-</tbody>
-</table>
-<p>Note: <code>check_overlap</code>&nbsp;仅对geom_text有效。</p>
-</section>
-</section>
-<section id="aes-specs映射属性" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="aes-specs映射属性"><span class="header-section-number">5.3</span> aes-specs映射属性</h2>
-<section id="linetype" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="linetype"><span class="header-section-number">5.3.1</span> linetype</h3>
-<table class="table">
-<thead>
-<tr class="header">
-<th>linetype (numeric)</th>
-<th>linetypevalue (character)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>blank</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>solid</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>dashed</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>dotted</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>dotdash</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>longdash</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>twodash</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>11</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>18</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>1f</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>81</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>88</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>8f</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>f1</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>f8</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ff</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="shape形状" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="shape形状"><span class="header-section-number">5.3.2</span> shape形状</h3>
-<p><img src="images/clipboard-498086216.png" class="img-fluid"></p>
-</section>
-<section id="stoke" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="stoke"><span class="header-section-number">5.3.3</span> stoke</h3>
-<p><img src="images/clipboard-943591392.png" class="img-fluid"></p>
-<p>justification对齐方式</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>just</th>
-<th>comments</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>hjust</td>
-<td>水平对齐</td>
-</tr>
-<tr class="even">
-<td>vjust</td>
-<td>纵向对齐</td>
-</tr>
-<tr class="odd">
-<td>hjust = 0</td>
-<td>左对齐；left</td>
-</tr>
-<tr class="even">
-<td>hjust = 0.5</td>
-<td>居中；middle</td>
-</tr>
-<tr class="odd">
-<td>hjust = 1</td>
-<td>右对齐；right</td>
-</tr>
-<tr class="even">
-<td>vjust = 0</td>
-<td>底部；bottom</td>
-</tr>
-<tr class="odd">
-<td>vjust = 0.5</td>
-<td>中间；center</td>
-</tr>
-<tr class="even">
-<td>vjust = 1</td>
-<td>顶部；top</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="theme主题" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="theme主题"><span class="header-section-number">5.4</span> theme主题</h2>
-<p><a href="https://ggplot2tor.com/theme/">A complete guide to theme (ggplot2tor.com)</a></p>
 
 
 </section>
@@ -1245,11 +1014,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./stringr.html" class="pagination-link" aria-label="字符处理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">字符处理</span></span>
+      <a href="./rmanage.html" class="pagination-link" aria-label="R Management">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R Management</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./tidyverse.html" class="pagination-link" aria-label="R 数据分析流">
+        <span class="nav-page-text">R 数据分析流</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

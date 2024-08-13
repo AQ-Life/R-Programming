@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Programming - 2&nbsp; 数据处理与操作</title>
+<title>R Programming - 3&nbsp; 数据处理与操作</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,12 +112,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">R 数据分析流</a></li><li class="breadcrumb-item"><a href="./dplyr.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据处理与操作</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">R 数据分析流</a></li><li class="breadcrumb-item"><a href="./dplyr.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据处理与操作</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -120,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Programming</a> 
@@ -154,6 +161,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R Management</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./latex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">LaTex 应用</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -168,19 +181,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dplyr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据处理与操作</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据处理与操作</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stringr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">字符处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">字符处理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ggplot2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数据可视化</span></span></a>
   </div>
 </li>
       </ul>
@@ -188,36 +201,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#filter-筛选行" id="toc-filter-筛选行" class="nav-link active" data-scroll-target="#filter-筛选行"><span class="header-section-number">2.0.1</span> filter 筛选行</a></li>
-  <li><a href="#filter-对多列进行筛选行" id="toc-filter-对多列进行筛选行" class="nav-link" data-scroll-target="#filter-对多列进行筛选行"><span class="header-section-number">2.0.2</span> filter 对多列进行筛选行</a></li>
-  <li><a href="#select-选择列删掉列" id="toc-select-选择列删掉列" class="nav-link" data-scroll-target="#select-选择列删掉列"><span class="header-section-number">2.0.3</span> select 选择列删掉列</a></li>
-  <li><a href="#pull-取单个变量作为一个向量" id="toc-pull-取单个变量作为一个向量" class="nav-link" data-scroll-target="#pull-取单个变量作为一个向量"><span class="header-section-number">2.0.4</span> pull 取单个变量作为一个向量</a></li>
-  <li><a href="#rename-修改列名" id="toc-rename-修改列名" class="nav-link" data-scroll-target="#rename-修改列名"><span class="header-section-number">2.0.5</span> rename 修改列名</a></li>
-  <li><a href="#mutate-衍生新的列" id="toc-mutate-衍生新的列" class="nav-link" data-scroll-target="#mutate-衍生新的列"><span class="header-section-number">2.0.6</span> mutate 衍生新的列</a></li>
-  <li><a href="#across-对多个列处理" id="toc-across-对多个列处理" class="nav-link" data-scroll-target="#across-对多个列处理"><span class="header-section-number">2.0.7</span> across 对多个列处理</a></li>
-  <li><a href="#arrange-排序" id="toc-arrange-排序" class="nav-link" data-scroll-target="#arrange-排序"><span class="header-section-number">2.0.8</span> arrange 排序</a></li>
-  <li><a href="#distinct-去重" id="toc-distinct-去重" class="nav-link" data-scroll-target="#distinct-去重"><span class="header-section-number">2.0.9</span> distinct 去重</a></li>
-  <li><a href="#count-计数" id="toc-count-计数" class="nav-link" data-scroll-target="#count-计数"><span class="header-section-number">2.0.10</span> count 计数</a></li>
-  <li><a href="#pivot_longer-pivot_wider-转置" id="toc-pivot_longer-pivot_wider-转置" class="nav-link" data-scroll-target="#pivot_longer-pivot_wider-转置"><span class="header-section-number">2.0.11</span> pivot_longer, pivot_wider 转置</a></li>
-  <li><a href="#left_join-right_join-full_join横向合并数据集" id="toc-left_join-right_join-full_join横向合并数据集" class="nav-link" data-scroll-target="#left_join-right_join-full_join横向合并数据集"><span class="header-section-number">2.0.12</span> left_join, right_join, full_join横向合并数据集</a></li>
-  <li><a href="#rbind.fill-纵向合并数据集" id="toc-rbind.fill-纵向合并数据集" class="nav-link" data-scroll-target="#rbind.fill-纵向合并数据集"><span class="header-section-number">2.0.13</span> rbind.fill 纵向合并数据集</a></li>
-  <li><a href="#cumsum-lag-实现有条件的累加计数" id="toc-cumsum-lag-实现有条件的累加计数" class="nav-link" data-scroll-target="#cumsum-lag-实现有条件的累加计数"><span class="header-section-number">2.0.14</span> cumsum, lag 实现有条件的累加计数</a></li>
+  <li><a href="#filter-筛选行" id="toc-filter-筛选行" class="nav-link active" data-scroll-target="#filter-筛选行"><span class="header-section-number">3.0.1</span> filter 筛选行</a></li>
+  <li><a href="#filter-对多列进行筛选行" id="toc-filter-对多列进行筛选行" class="nav-link" data-scroll-target="#filter-对多列进行筛选行"><span class="header-section-number">3.0.2</span> filter 对多列进行筛选行</a></li>
+  <li><a href="#select-选择列删掉列" id="toc-select-选择列删掉列" class="nav-link" data-scroll-target="#select-选择列删掉列"><span class="header-section-number">3.0.3</span> select 选择列删掉列</a></li>
+  <li><a href="#pull-取单个变量作为一个向量" id="toc-pull-取单个变量作为一个向量" class="nav-link" data-scroll-target="#pull-取单个变量作为一个向量"><span class="header-section-number">3.0.4</span> pull 取单个变量作为一个向量</a></li>
+  <li><a href="#rename-修改列名" id="toc-rename-修改列名" class="nav-link" data-scroll-target="#rename-修改列名"><span class="header-section-number">3.0.5</span> rename 修改列名</a></li>
+  <li><a href="#mutate-衍生新的列" id="toc-mutate-衍生新的列" class="nav-link" data-scroll-target="#mutate-衍生新的列"><span class="header-section-number">3.0.6</span> mutate 衍生新的列</a></li>
+  <li><a href="#across-对多个列处理" id="toc-across-对多个列处理" class="nav-link" data-scroll-target="#across-对多个列处理"><span class="header-section-number">3.0.7</span> across 对多个列处理</a></li>
+  <li><a href="#arrange-排序" id="toc-arrange-排序" class="nav-link" data-scroll-target="#arrange-排序"><span class="header-section-number">3.0.8</span> arrange 排序</a></li>
+  <li><a href="#distinct-去重" id="toc-distinct-去重" class="nav-link" data-scroll-target="#distinct-去重"><span class="header-section-number">3.0.9</span> distinct 去重</a></li>
+  <li><a href="#count-计数" id="toc-count-计数" class="nav-link" data-scroll-target="#count-计数"><span class="header-section-number">3.0.10</span> count 计数</a></li>
+  <li><a href="#pivot_longer-pivot_wider-转置" id="toc-pivot_longer-pivot_wider-转置" class="nav-link" data-scroll-target="#pivot_longer-pivot_wider-转置"><span class="header-section-number">3.0.11</span> pivot_longer, pivot_wider 转置</a></li>
+  <li><a href="#left_join-right_join-full_join横向合并数据集" id="toc-left_join-right_join-full_join横向合并数据集" class="nav-link" data-scroll-target="#left_join-right_join-full_join横向合并数据集"><span class="header-section-number">3.0.12</span> left_join, right_join, full_join横向合并数据集</a></li>
+  <li><a href="#rbind.fill-纵向合并数据集" id="toc-rbind.fill-纵向合并数据集" class="nav-link" data-scroll-target="#rbind.fill-纵向合并数据集"><span class="header-section-number">3.0.13</span> rbind.fill 纵向合并数据集</a></li>
+  <li><a href="#cumsum-lag-实现有条件的累加计数" id="toc-cumsum-lag-实现有条件的累加计数" class="nav-link" data-scroll-target="#cumsum-lag-实现有条件的累加计数"><span class="header-section-number">3.0.14</span> cumsum, lag 实现有条件的累加计数</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tidyverse.html">R 数据分析流</a></li><li class="breadcrumb-item"><a href="./dplyr.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据处理与操作</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据处理与操作</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据处理与操作</span></h1>
 </div>
 
 
@@ -230,10 +243,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
-<section id="filter-筛选行" class="level3" data-number="2.0.1">
-<h3 data-number="2.0.1" class="anchored" data-anchor-id="filter-筛选行"><span class="header-section-number">2.0.1</span> filter 筛选行</h3>
+
+<section id="filter-筛选行" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="filter-筛选行"><span class="header-section-number">3.0.1</span> filter 筛选行</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span>    </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"F"</span>, age <span class="sc">&lt;=</span> <span class="dv">13</span>) <span class="co">#,=and  </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span>    </span>
@@ -243,15 +258,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span>    </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>age <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">15</span>)) <span class="co">#表示不要13，15行</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="filter-对多列进行筛选行" class="level3" data-number="2.0.2">
-<h3 data-number="2.0.2" class="anchored" data-anchor-id="filter-对多列进行筛选行"><span class="header-section-number">2.0.2</span> filter 对多列进行筛选行</h3>
+<section id="filter-对多列进行筛选行" class="level3" data-number="3.0.2">
+<h3 data-number="3.0.2" class="anchored" data-anchor-id="filter-对多列进行筛选行"><span class="header-section-number">3.0.2</span> filter 对多列进行筛选行</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span>    </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_all</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>, <span class="sc">~</span> .x <span class="sc">&gt;</span> <span class="dv">75</span>)) <span class="co">#表示筛选出第4-6列中所有列都&gt;75的行</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">where</span>(is.character),is.na)) <span class="co">#从所有字符列中选择任意一列存在NA的行</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="select-选择列删掉列" class="level3" data-number="2.0.3">
-<h3 data-number="2.0.3" class="anchored" data-anchor-id="select-选择列删掉列"><span class="header-section-number">2.0.3</span> select 选择列删掉列</h3>
+<section id="select-选择列删掉列" class="level3" data-number="3.0.3">
+<h3 data-number="3.0.3" class="anchored" data-anchor-id="select-选择列删掉列"><span class="header-section-number">3.0.3</span> select 选择列删掉列</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, height, weight)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -270,19 +285,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="co">#选择所有数值列</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="pull-取单个变量作为一个向量" class="level3" data-number="2.0.4">
-<h3 data-number="2.0.4" class="anchored" data-anchor-id="pull-取单个变量作为一个向量"><span class="header-section-number">2.0.4</span> pull 取单个变量作为一个向量</h3>
+<section id="pull-取单个变量作为一个向量" class="level3" data-number="3.0.4">
+<h3 data-number="3.0.4" class="anchored" data-anchor-id="pull-取单个变量作为一个向量"><span class="header-section-number">3.0.4</span> pull 取单个变量作为一个向量</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(name)  <span class="co">#取dataset中name变量的前5行作为一个向量</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="rename-修改列名" class="level3" data-number="2.0.5">
-<h3 data-number="2.0.5" class="anchored" data-anchor-id="rename-修改列名"><span class="header-section-number">2.0.5</span> rename 修改列名</h3>
+<section id="rename-修改列名" class="level3" data-number="3.0.5">
+<h3 data-number="3.0.5" class="anchored" data-anchor-id="rename-修改列名"><span class="header-section-number">3.0.5</span> rename 修改列名</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_name =</span> old_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="mutate-衍生新的列" class="level3" data-number="2.0.6">
-<h3 data-number="2.0.6" class="anchored" data-anchor-id="mutate-衍生新的列"><span class="header-section-number">2.0.6</span> mutate 衍生新的列</h3>
+<section id="mutate-衍生新的列" class="level3" data-number="3.0.6">
+<h3 data-number="3.0.6" class="anchored" data-anchor-id="mutate-衍生新的列"><span class="header-section-number">3.0.6</span> mutate 衍生新的列</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">if_else</span>(sex <span class="sc">==</span> <span class="st">"男"</span>, <span class="st">"M"</span>, <span class="st">"F"</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -291,31 +306,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                           math <span class="sc">&gt;=</span> <span class="dv">60</span> <span class="sc">~</span> <span class="st">"middle"</span>,</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                           <span class="cn">TRUE</span>, <span class="sc">~</span> <span class="st">"low"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="across-对多个列处理" class="level3" data-number="2.0.7">
-<h3 data-number="2.0.7" class="anchored" data-anchor-id="across-对多个列处理"><span class="header-section-number">2.0.7</span> across 对多个列处理</h3>
+<section id="across-对多个列处理" class="level3" data-number="3.0.7">
+<h3 data-number="3.0.7" class="anchored" data-anchor-id="across-对多个列处理"><span class="header-section-number">3.0.7</span> across 对多个列处理</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.character)) <span class="co">#将所有列转换为字符</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">contains</span>(<span class="st">"Length"</span>)<span class="sc">|</span><span class="fu">contains</span>(<span class="st">"Width"</span>), <span class="sc">~</span> .x<span class="sc">*</span><span class="dv">10</span>)) <span class="co">#将列名中含有Length或Width字符的列*10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="arrange-排序" class="level3" data-number="2.0.8">
-<h3 data-number="2.0.8" class="anchored" data-anchor-id="arrange-排序"><span class="header-section-number">2.0.8</span> arrange 排序</h3>
+<section id="arrange-排序" class="level3" data-number="3.0.8">
+<h3 data-number="3.0.8" class="anchored" data-anchor-id="arrange-排序"><span class="header-section-number">3.0.8</span> arrange 排序</h3>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(col1), col2) <span class="co">#按照col1倒序排序，再按照col2顺序排序,注意缺失值NA排在最后面，不同于SAS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="distinct-去重" class="level3" data-number="2.0.9">
-<h3 data-number="2.0.9" class="anchored" data-anchor-id="distinct-去重"><span class="header-section-number">2.0.9</span> distinct 去重</h3>
+<section id="distinct-去重" class="level3" data-number="3.0.9">
+<h3 data-number="3.0.9" class="anchored" data-anchor-id="distinct-去重"><span class="header-section-number">3.0.9</span> distinct 去重</h3>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(col1, col2, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="co">#.keep_all 是否要保留所有列</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="count-计数" class="level3" data-number="2.0.10">
-<h3 data-number="2.0.10" class="anchored" data-anchor-id="count-计数"><span class="header-section-number">2.0.10</span> count 计数</h3>
+<section id="count-计数" class="level3" data-number="3.0.10">
+<h3 data-number="3.0.10" class="anchored" data-anchor-id="count-计数"><span class="header-section-number">3.0.10</span> count 计数</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(col1) <span class="co">#计算col1各个组别的数量</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="pivot_longer-pivot_wider-转置" class="level3" data-number="2.0.11">
-<h3 data-number="2.0.11" class="anchored" data-anchor-id="pivot_longer-pivot_wider-转置"><span class="header-section-number">2.0.11</span> pivot_longer, pivot_wider 转置</h3>
+<section id="pivot_longer-pivot_wider-转置" class="level3" data-number="3.0.11">
+<h3 data-number="3.0.11" class="anchored" data-anchor-id="pivot_longer-pivot_wider-转置"><span class="header-section-number">3.0.11</span> pivot_longer, pivot_wider 转置</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">paste0</span>(<span class="st">"header"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"header_label"</span>,</span>
@@ -326,22 +341,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="fu">c</span>(col2, col3), <span class="co">#可以设置多个列进行转置</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="left_join-right_join-full_join横向合并数据集" class="level3" data-number="2.0.12">
-<h3 data-number="2.0.12" class="anchored" data-anchor-id="left_join-right_join-full_join横向合并数据集"><span class="header-section-number">2.0.12</span> left_join, right_join, full_join横向合并数据集</h3>
+<section id="left_join-right_join-full_join横向合并数据集" class="level3" data-number="3.0.12">
+<h3 data-number="3.0.12" class="anchored" data-anchor-id="left_join-right_join-full_join横向合并数据集"><span class="header-section-number">3.0.12</span> left_join, right_join, full_join横向合并数据集</h3>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(dataset1, dataset2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"bycol1"</span>, <span class="st">"bycol2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="rbind.fill-纵向合并数据集" class="level3" data-number="2.0.13">
-<h3 data-number="2.0.13" class="anchored" data-anchor-id="rbind.fill-纵向合并数据集"><span class="header-section-number">2.0.13</span> rbind.fill 纵向合并数据集</h3>
+<section id="rbind.fill-纵向合并数据集" class="level3" data-number="3.0.13">
+<h3 data-number="3.0.13" class="anchored" data-anchor-id="rbind.fill-纵向合并数据集"><span class="header-section-number">3.0.13</span> rbind.fill 纵向合并数据集</h3>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind.fill</span>(dataset1, dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="cumsum-lag-实现有条件的累加计数" class="level3" data-number="2.0.14">
-<h3 data-number="2.0.14" class="anchored" data-anchor-id="cumsum-lag-实现有条件的累加计数"><span class="header-section-number">2.0.14</span> cumsum, lag 实现有条件的累加计数</h3>
+<section id="cumsum-lag-实现有条件的累加计数" class="level3" data-number="3.0.14">
+<h3 data-number="3.0.14" class="anchored" data-anchor-id="cumsum-lag-实现有条件的累加计数"><span class="header-section-number">3.0.14</span> cumsum, lag 实现有条件的累加计数</h3>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TiaoJian =</span> x<span class="sc">&lt;=</span><span class="fu">lag</span>(x) <span class="sc">&amp;</span> y<span class="sc">&lt;</span><span class="fu">lag</span>(y),</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">TiaoJianYN =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(TiaoJian),<span class="cn">FALSE</span>,TiaoJian),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">page =</span> <span class="fu">cumsum</span>(TiaoJianYN <span class="sc">+</span> 0L))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">page =</span> <span class="fu">cumsum</span>(TiaoJianYN <span class="sc">+</span> <span class="dv">0</span>L))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -426,10 +441,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -439,8 +471,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -452,7 +493,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -496,6 +660,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -521,6 +686,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -582,17 +773,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./tidyverse.html" class="pagination-link">
+      <a href="./tidyverse.html" class="pagination-link" aria-label="R 数据分析流">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R 数据分析流</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./stringr.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">字符处理</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./stringr.html" class="pagination-link" aria-label="字符处理">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">字符处理</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
